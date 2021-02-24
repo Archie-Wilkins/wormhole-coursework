@@ -18,6 +18,11 @@ public class Dice {
     this.faces = numberOfFaces;
   }
 
+
+  public int getFaces(){
+    return this.faces;
+  }
+
   /**
    * Roll to dice to get a value.
    *
@@ -30,25 +35,19 @@ public class Dice {
 
   //  User manually input physical dice roll
   // @return the user inputted value between 1 and the number of faces.
-  //INCOMPLETE CURRENTLY RETURN ERROR
-  //public int inputRoll() {
-  //  boolean validInput = false;
-  //  Scanner sc = new Scanner(System.in);
-  //  int userInputtedRoll;
-  //    while (validInput = false) {
-  //      System.out.println("Enter Dice Roll Value");
-  //      userInputtedRoll = sc.nextInt();
-  //      System.out.println(userInputtedRoll);
-  //      if (userInputtedRoll > faces) {
-  //        System.out.println("Invalid input, dice roll must be less than " + faces);
-  //      } else if (userInputtedRoll < 1) {
-  //        System.out.println("Invalid input, dice roll must be more than 0" );
-  //      } else {
-  //      validInput = true;
-  //    }
-
-  //   }
-  //  return userInputtedRoll;
-  // }
+  public int userInputRoll(){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Please roll the dice PLAYER XXXXXXXX");
+    System.out.println("What did you roll? (Enter Number)");
+    int userInput = 0;
+    try {
+      userInput = sc.nextInt();
+      return userInput;
+    }catch(Exception e){
+    System.out.println("Invalid Input Please enter a number betweeen 1 and " + getFaces());
+    userInputRoll();
+     }
+    return userInput;
+  }
 
 }

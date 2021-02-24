@@ -1,5 +1,6 @@
 package com.cm6123.wormhole.app;
 
+import com.cm6123.wormhole.dice.Dice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +26,18 @@ public final class Application {
 
     logger.info("Application Started with args:{}", String.join(",", args));
 
+
     System.out.println("Hello World.  Welcome to Wormhole.");
+    Dice gameDice = new Dice(6);
+    System.out.println("User input = " + gameDice.userInputRoll());
+    System.out.println("Automatic Roll is " + gameDice.roll());
+
+    // Need to initialise players
+    // Need to iniitialise dice
+    // Need to initalise board
+
+
+
 
     logger.info("Application closing");
   }

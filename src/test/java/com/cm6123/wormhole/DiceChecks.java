@@ -75,5 +75,7 @@ public class DiceChecks {
 
   }
 
+  //public userInputtedRoleNeverExceedsFaces
+  //public userInputtedRoleHandlesNonIntegerInput
 
 }
