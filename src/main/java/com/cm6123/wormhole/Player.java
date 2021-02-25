@@ -16,17 +16,16 @@ public class Player {
     /**
      *  Name of tunrPosition.
      **/
-    private int turnPosition = 0;
+    private int turnPosition;
     /**
      * Construct a player, with a name, boardPosition(initally 0), turn position.
      *
      * @param name name of the player.
     **/
-    public Player(final String name){
+    public Player(final String name, int turnPosition){
     this.name = name;
     this.boardPosition = 0;
     this.turnPosition = turnPosition;
-    turnPosition = turnPosition + 1;
     }
 
     /**
