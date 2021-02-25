@@ -4,7 +4,7 @@ import com.cm6123.wormhole.dice.Dice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
 
 public final class Application {

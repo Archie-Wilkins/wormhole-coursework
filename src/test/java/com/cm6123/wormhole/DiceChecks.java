@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class DiceChecks {
-
+  //Test 1
   @ParameterizedTest
   @ValueSource(ints = {4, 6, 7, 8, 10, 12, 15})
   public void diceNeverExceedsNumberOfFacesOrGoesBelowOne(Integer faces) throws Exception {
@@ -38,7 +38,7 @@ public class DiceChecks {
     assertTrue(min.equals(1), "min does't equal 1, but actually equals " + min);
 
   }
-
+  // Test 2
   @ParameterizedTest
   @ValueSource(ints = {4, 6, 8, 10, 12})
   public void diceRollsEveryValueAtLeastOnce(Integer faces) throws Exception {
@@ -53,7 +53,7 @@ public class DiceChecks {
 
     assertTrue(values.size() == faces);
   }
-
+  // Test 3
   @ParameterizedTest
   @ValueSource(ints = {4, 6, 8, 10, 12})
   public void diceRollsEveryValueRoughlyEqually(Integer faces) throws Exception {
@@ -74,11 +74,28 @@ public class DiceChecks {
 
 
   }
+  ///THIS ALL NEEDS TO BE CHANGED
+  //INCOMPLETE public userInputtedRoleNeverExceedsFaces
+  //@ParameterizedTest
+  //@ValueSource(ints = {4, 6, 7, 8, 10, 12, 15})
+  //public void UserInputtedDiceValueNeverExceedsNumberOfFacesOrGoesBelowOne(Integer faces) throws Exception {
 
-  //public userInputtedRoleNeverExceedsFaces
+  //  Dice aDice = new Dice(faces);
 
+
+
+  //}
 
 
   //public userInputtedRoleHandlesNonIntegerInput
+
+  // Test 4
+  @ParameterizedTest
+  @ValueSource(ints = {4, 6, 8, 10, 12})
+  public void getFacesReturnsNumberOfFacesCorrectly(Integer faces) throws Exception {
+    Dice aDice = new Dice(faces);
+    int diceFaces = aDice.getFaces();
+    assertTrue(diceFaces == faces);
+  }
 
 }

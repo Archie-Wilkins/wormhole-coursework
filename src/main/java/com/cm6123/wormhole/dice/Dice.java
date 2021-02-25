@@ -18,7 +18,9 @@ public class Dice {
     this.faces = numberOfFaces;
   }
 
-
+  /**
+   * @return number of faces on dice.
+   */
   public int getFaces(){
     return this.faces;
   }
@@ -35,9 +37,12 @@ public class Dice {
 
 
 
-
-  //  User manually input physical dice roll
-  // @return the user inputted value between 1 and the number of faces.
+  /**
+   * User enters physical dice value.
+   *
+   * @return an integer inputted by the user as long as the value is an integer and between 1 and the number of faces.
+   */
+  ///NEEDS TO BE CHANGED TO INCORPORATE VALIDATOR
   public int userInputRoll(){
     Scanner sc = new Scanner(System.in);
     System.out.println("Please roll the dice PLAYER XXXXXXXX");
@@ -52,5 +57,4 @@ public class Dice {
      }
     return userInput;
   }
-
 }
