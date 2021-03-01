@@ -36,13 +36,13 @@ public class Dice {
   }
 
 
-
   /**
    * User enters physical dice value.
    *
    * @return an integer inputted by the user as long as the value is an integer and between 1 and the number of faces.
    */
   ///NEEDS TO BE CHANGED TO INCORPORATE VALIDATOR
+  // Reference https://www.w3schools.com/java/java_try_catch.asp
   public int userInputRoll(){
     Scanner sc = new Scanner(System.in);
     System.out.println("Please roll the dice PLAYER XXXXXXXX");

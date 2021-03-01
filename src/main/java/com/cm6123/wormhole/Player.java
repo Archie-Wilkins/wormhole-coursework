@@ -10,22 +10,24 @@ public class Player {
      **/
     private String name;
     /**
-     *  Name of boardPosition.
+     * Name of boardPosition.
      **/
     private int boardPosition;
     /**
-     *  Name of tunrPosition.
+     * Name of tunrPosition.
      **/
-    private int turnPosition;
+    private final int turnPosition;
+
     /**
      * Construct a player, with a name, boardPosition(initally 0), turn position.
      *
-     * @param name name of the player.
-    **/
-    public Player(final String name, int turnPosition){
-    this.name = name;
-    this.boardPosition = 0;
-    this.turnPosition = turnPosition;
+     * @param name         name of the player.
+     * @param turnPosition turn for the player.
+     **/
+    public Player(final String name, final int turnPosition) {
+        this.name = name;
+        this.boardPosition = 1;
+        this.turnPosition = turnPosition;
     }
 
     /**
@@ -52,6 +54,7 @@ public class Player {
     /**
      * Create dice constructor.
      */
+    //Need to refactor
     public void createDice(){
         Scanner ui = new Scanner(System.in);
         System.out.println("How many dice faces are you playing with? (Please enter an integer");

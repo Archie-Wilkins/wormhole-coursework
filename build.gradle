@@ -101,4 +101,5 @@ pitest {
 
 }
 
-check.dependsOn("pitest")
+//Commented out to resolve coverage.execute.CoverageMinion Bug
+//check.dependsOn("pitest")

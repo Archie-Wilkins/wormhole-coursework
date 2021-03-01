@@ -37,22 +37,21 @@ public class PlayerChecks {
     }
 
     @Test
-    public void initalBoardPositionForPlayersSetTo0() throws Exception {
+    public void initalBoardPositionForPlayersSetTo1() throws Exception {
 
 
-        Player Player1 = new Player("John",1);
+        Player Player1 = new Player("John", 1);
         int PlayerBoardPosition1 = Player1.getBoardPosition();
-        assertEquals(PlayerBoardPosition1, 0);
+        assertEquals(PlayerBoardPosition1, 1);
 
-        Player Player2 = new Player("Sarah",2);
+        Player Player2 = new Player("Sarah", 2);
         int PlayerBoardPosition2 = Player2.getBoardPosition();
-        assertEquals(PlayerBoardPosition2, 0);
+        assertEquals(PlayerBoardPosition2, 1);
 
         Player Player3 = new Player("Pete",3);
         int PlayerBoardPosition3 = Player3.getBoardPosition();
-        assertEquals(PlayerBoardPosition3, 0);
+        assertEquals(PlayerBoardPosition3, 1);
     }
-
 
 
 }
