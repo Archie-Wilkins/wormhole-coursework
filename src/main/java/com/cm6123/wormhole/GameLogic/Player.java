@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Player {
     /**
-     *  Name of player.
+     * Name of player.
      **/
     private String name;
     /**
@@ -33,7 +33,7 @@ public class Player {
     /**
      * @return player name.
      */
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
@@ -55,13 +55,13 @@ public class Player {
      * Create dice constructor.
      */
     //Need to refactor
-    public void createDice(){
+    public void createDice() {
         Scanner ui = new Scanner(System.in);
         System.out.println("How many dice faces are you playing with? (Please enter an integer");
         int createDiceInput = 0;
         try {
             createDiceInput = ui.nextInt();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Invalid Input Please enter a number which is greater than 1");
             createDice();
         }
@@ -69,46 +69,5 @@ public class Player {
         System.out.println("Dice Created with " + createDiceInput + " faces.");
     }
 
-    public static class Square {
-
-        /**
-         * Position of the square within the array.
-         **/
-        private final int squarePosition;
-        /**
-         * The type of the square (Normal, Wormhole Entrance Or Wormhole Exit).
-         **/
-        private SquareType type;
-
-        /**
-         * Constructor For the Square.
-         *
-         * @param squarePosition - Position of the square within the array.
-         * @param type           - The type of the square (Normal, Wormhole Entrance Or Wormhole Exit).
-         **/
-        public Square(final int squarePosition, SquareType type) {
-            this.squarePosition = squarePosition;
-            this.type = type;
-        }
-
-        /**
-         * Getter for square positions.
-         *
-         * @return squarePosition (position 1-113)
-         **/
-        public int getSquarePosition() {
-            return squarePosition;
-        }
-
-        /**
-         * Getter for square type.
-         *
-         * @return squareType (NORMAL,WORMHOLEENTRANCE, WORMHOLEEXIT)
-         **/
-        public SquareType getSquareType() {
-            return type;
-        }
-
-        //Square Type Setter Here
-    }
 }
+
