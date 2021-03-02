@@ -1,4 +1,4 @@
-package com.cm6123.wormhole.app;
+package com.cm6123.wormhole.GameLogic;
 
 /**
  * Enum used to set the type for the square class.

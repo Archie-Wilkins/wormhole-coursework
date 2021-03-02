@@ -1,4 +1,4 @@
-package com.cm6123.wormhole.app;
+package com.cm6123.wormhole.GameLogic;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ public class Board {
     /**
      * ArrayList for squares which make up the board.
      **/
-    private ArrayList<Square> boardSquares = new ArrayList<>();
+    private ArrayList<Player.Square> boardSquares = new ArrayList<>();
 
     /**
      * Constructor for board.
@@ -52,7 +52,7 @@ public class Board {
         //For loop here to set squares
         for (int i = 1; i < boardSize + 13; i++) { //+12 to boardLength to create excess squares for player to move to if they go over 100
             //add method taken from https://www.tutorialspoint.com/java/util/arraylist_add_index.htm
-            boardSquares.add(new Square(i, SquareType.NORMAL));
+            boardSquares.add(new Player.Square(i, SquareType.NORMAL));
             // System.out.println(i); //For testing
         }
 

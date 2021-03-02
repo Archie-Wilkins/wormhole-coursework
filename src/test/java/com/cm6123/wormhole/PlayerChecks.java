@@ -1,9 +1,7 @@
 package com.cm6123.wormhole;
 
-import com.cm6123.wormhole.Player;
+import com.cm6123.wormhole.GameLogic.Player;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

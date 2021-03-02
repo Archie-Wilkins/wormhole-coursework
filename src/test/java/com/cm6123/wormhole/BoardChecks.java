@@ -1,10 +1,8 @@
 package com.cm6123.wormhole;
 
-import com.cm6123.wormhole.app.Board;
-import com.cm6123.wormhole.app.SquareType;
+import com.cm6123.wormhole.GameLogic.Board;
+import com.cm6123.wormhole.GameLogic.SquareType;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
