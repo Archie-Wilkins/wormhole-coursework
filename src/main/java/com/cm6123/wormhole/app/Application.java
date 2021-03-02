@@ -28,8 +28,9 @@ public final class Application {
 
     logger.info("Application Started with args:{}", String.join(",", args));
 
-
+    
     System.out.println("Hello World.  Welcome to Wormhole!!!!!!!!!");
+
 
     // Need to initalise board
     Dice gameDice = new Dice(6);
