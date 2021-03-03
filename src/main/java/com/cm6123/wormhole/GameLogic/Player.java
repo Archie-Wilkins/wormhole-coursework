@@ -19,15 +19,15 @@ public class Player {
     private final int turnPosition;
 
     /**
-     * Construct a player, with a name, boardPosition(initally 0), turn position.
+     *Construct a player, with a name, boardPosition(initally 0), turn position.
      *
-     * @param name         name of the player.
-     * @param turnPosition turn for the player.
+     * @param aName         name of the player.
+     * @param playerTurnPosition turn for the player.
      **/
-    public Player(final String name, final int turnPosition) {
-        this.name = name;
+    public Player(final String aName, final int playerTurnPosition) {
+        this.name = aName;
         this.boardPosition = 1;
-        this.turnPosition = turnPosition;
+        this.turnPosition = playerTurnPosition;
     }
 
     /**
@@ -57,12 +57,15 @@ public class Player {
     //Need to refactor
     public void createDice() {
         Scanner ui = new Scanner(System.in);
-        System.out.println("How many dice faces are you playing with? (Please enter an integer");
+        System.out.println("How many dice faces are you playing with?"
+               + " (Please enter an integer");
+        //Example of where I really dislike checkstyles line length
         int createDiceInput = 0;
         try {
             createDiceInput = ui.nextInt();
         } catch (Exception e) {
-            System.out.println("Invalid Input Please enter a number which is greater than 1");
+            System.out.println("Invalid Input "
+                  +  "Please enter a number which is greater than 1");
             createDice();
         }
         Dice gameDice = new Dice(createDiceInput);

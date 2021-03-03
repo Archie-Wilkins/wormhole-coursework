@@ -14,12 +14,13 @@ public class Square {
         /**
          * Constructor For the Square.
          *
-         * @param squarePosition - Position of the square within the array.
-         * @param type           - The type of the square (Normal, Wormhole Entrance Or Wormhole Exit).
+         * @param aSquarePosition - Position of the square within the array.
+         * @param initialType - The type of the square
+         *       (Normal, Wormhole Entrance Or Wormhole Exit).
          **/
-        public Square(final int squarePosition, SquareType type) {
-            this.squarePosition = squarePosition;
-            this.type = type;
+        public Square(final int aSquarePosition, SquareType initialType) {
+            this.squarePosition = aSquarePosition;
+            this.type = initialType;
         }
 
         /**
@@ -42,10 +43,10 @@ public class Square {
 
     /**
      * Setter for square type.
-     * @param NewType , the SquareType enum value to set the square to.
+     * @param newType , the SquareType enum value to set the square to.
      **/
-        public void setSquareType(SquareType NewType){
-           this.type = NewType;
+        public void setSquareType(SquareType newType) {
+           this.type = newType;
         }
 
 
