@@ -123,34 +123,34 @@ public class Board {
     /**
      * Creates array with squares to be turned into Entrances.
      **/
-    public void selectWormHoleEntrances() {
-        int numberOfWormHoleEntrances = boardLength;
-        while (wormHoleEntranceSquares.size() < boardLength) {
-           int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
-           if ((0 >= selectedSquare) & (selectedSquare >= this.boardSize)) {
-           //Reference .get() method
-           wormHoleEntranceSquares.add(boardSquares.get(selectedSquare));
-            }
-        }
-    }
+    //public void selectWormHoleEntrances() {
+    //    int numberOfWormHoleEntrances = boardLength;
+    //    while (wormHoleEntranceSquares.size() < boardLength) {
+    //       int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
+    //       if ((0 >= selectedSquare) & (selectedSquare >= this.boardSize)) {
+    //       //Reference .get() method
+    //       wormHoleEntranceSquares.add(boardSquares.get(selectedSquare));
+    //        }
+    //    }
+    //}
 
     //Needs testing.
     /**
      * Creates array with squares to be turned into Exits.
      **/
-  public void selectWormHoleExits() {
-      int numberOfWormHoleEntrances = boardLength;
-      while (wormHoleExitSquares.size() < boardLength) {
-          int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
-          if ((0 >= selectedSquare) & (selectedSquare >= this.boardSize)) {
-              //Reference Contains method ---- https://howtodoinjava.com/java/collections/arraylist/arraylist-contains/
-              if (!wormHoleEntranceSquares.contains(boardSquares.get(selectedSquare))) {
-                  wormHoleEntranceSquares.add(boardSquares.get(selectedSquare));
-              }
-          }
-      }
+  //public void selectWormHoleExits() {
+    //  int numberOfWormHoleEntrances = boardLength;
+    //  while (wormHoleExitSquares.size() < boardLength) {
+    //      int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
+    //      if ((0 >= selectedSquare) & (selectedSquare >= this.boardSize)) {
+    //          //Reference Contains method ---- https://howtodoinjava.com/java/collections/arraylist/arraylist-contains/
+    //          if (!wormHoleEntranceSquares.contains(boardSquares.get(selectedSquare))) {
+    //              wormHoleEntranceSquares.add(boardSquares.get(selectedSquare));
+    //          }
+    //      }
+    //  }
 
-  }
+  //}
 }
 
 

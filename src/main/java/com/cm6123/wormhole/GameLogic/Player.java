@@ -55,22 +55,22 @@ public class Player {
      * Create dice constructor.
      */
     //Need to refactor
-    public void createDice() {
-        Scanner ui = new Scanner(System.in);
-        System.out.println("How many dice faces are you playing with?"
-               + " (Please enter an integer");
-        //Example of where I really dislike checkstyles line length
-        int createDiceInput = 0;
-        try {
-            createDiceInput = ui.nextInt();
-        } catch (Exception e) {
-            System.out.println("Invalid Input "
-                  +  "Please enter a number which is greater than 1");
-            createDice();
-        }
-        Dice gameDice = new Dice(createDiceInput);
-        System.out.println("Dice Created with " + createDiceInput + " faces.");
-    }
+  //  public void createDice() {
+  //      Scanner ui = new Scanner(System.in);
+  //      System.out.println("How many dice faces are you playing with?"
+  //             + " (Please enter an integer");
+  //      //Example of where I really dislike checkstyles line length
+  //      int createDiceInput = 0;
+  //      try {
+  //          createDiceInput = ui.nextInt();
+  //      } catch (Exception e) {
+  //          System.out.println("Invalid Input "
+  //                +  "Please enter a number which is greater than 1");
+  //          createDice();
+  //      }
+  //      Dice gameDice = new Dice(createDiceInput);
+  //      System.out.println("Dice Created with " + createDiceInput + " faces.");
+  //  }
 
 }
 
