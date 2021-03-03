@@ -45,5 +45,14 @@ public class BoardChecks {
         assertEquals(TestBoard.getSquareType(112), SquareType.NORMAL);
     }
 
+    @Test
+    public void GetBoardSizeReturnsCorrectSize() throws Exception {
+        Board TestBoard = new Board(10);
+        TestBoard.generateBoard();
+
+        int boardSize = TestBoard.getBoardSize();
+        assertEquals(boardSize, 100);
+    }
+
 
 }

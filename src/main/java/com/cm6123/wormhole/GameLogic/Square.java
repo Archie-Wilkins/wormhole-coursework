@@ -47,7 +47,7 @@ public class Square {
         public void setSquareType(SquareType NewType){
            this.type = NewType;
         }
-        //Need to create test for setter.
+
 
 }
 
