@@ -71,8 +71,9 @@ public class Board {
      **/
     public void generateBoard() {
         //For loop here to set squares
-        final int boardBuffer = 12;
-        for (int i = 1; i < this.getBoardLength() + boardBuffer; i++) {
+        final int boardBuffer = 13;
+        //Tests showed mistake where I put getBoardLength() not size
+        for (int i = 1; i < this.getBoardSize() + boardBuffer; i++) {
             //+12 to boardLength to create excess squares
             // for player to move to if they go over 100
             //add method taken from
