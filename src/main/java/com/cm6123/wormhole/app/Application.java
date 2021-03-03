@@ -32,7 +32,7 @@ public final class Application {
 
     // Need to initalise board
     Dice gameDice = new Dice(6);
-    System.out.println("User input = " + gameDice.userInputRoll());
+    //System.out.println("User input = " + gameDice.userInputRoll());
     System.out.println("Automatic Roll is " + gameDice.roll());
 
     // Need to initialise players
