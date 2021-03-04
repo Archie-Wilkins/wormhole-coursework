@@ -1,8 +1,7 @@
 package com.cm6123.wormhole.GameLogic;
 
-import com.cm6123.wormhole.dice.Dice;
-
-import java.util.Scanner;
+//import com.cm6123.wormhole.dice.Dice;
+//import java.util.Scanner;
 
 public class Player {
     /**
@@ -51,9 +50,7 @@ public class Player {
         return this.turnPosition;
     }
 
-    /**
-     * Create dice constructor.
-     */
+    //Create Dice Constructor
     //Need to refactor
   //  public void createDice() {
   //      Scanner ui = new Scanner(System.in);
@@ -69,7 +66,8 @@ public class Player {
   //          createDice();
   //      }
   //      Dice gameDice = new Dice(createDiceInput);
-  //      System.out.println("Dice Created with " + createDiceInput + " faces.");
+  //      System.out.println("Dice Created with " +
+    //       createDiceInput + " faces.");
   //  }
 
 }

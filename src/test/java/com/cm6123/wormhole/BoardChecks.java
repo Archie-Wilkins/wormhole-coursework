@@ -132,19 +132,60 @@ public class BoardChecks {
     //Need to make tests to check first and ending squares arent coverted
     //Need to make method to convert items into array to relevant SquareType.
     @Test
-    public void WormHoleEntranceSquaresAndExitSquaresHaveUniqueValuesCHECKINGTESTFAILS() throws Exception {
+    public void CheckWormHoleEntrancesConvertedToTypeEntrance() throws Exception {
         Board TestBoard = new Board(10);
         TestBoard.generateBoard();
+        TestBoard.selectWormHoleEntrances();
+        TestBoard.selectWormHoleEntrances();
+        TestBoard.convertSquareTypes();
 
-        boolean allValuesUnique = true;
         for (Square s: TestBoard.getWormHoleEntranceSquares()){
-            boolean overLappingValues = TestBoard.getWormHoleExitSquares().contains(s);
-            if(overLappingValues = true){
-                allValuesUnique = false;
-            }
+            assertEquals(s.getSquareType(), SquareType.WORMHOLEENTRANCE);
         }
-        assertEquals(allValuesUnique, false);
+
     }
+
+    @Test
+    public void CheckWormHoleExitsConvertedToTypeExits() throws Exception {
+        Board TestBoard = new Board(10);
+        TestBoard.generateBoard();
+        TestBoard.selectWormHoleEntrances();
+        TestBoard.selectWormHoleEntrances();
+        TestBoard.convertSquareTypes();
+
+        for (Square s: TestBoard.getWormHoleExitSquares()){
+            assertEquals(s.getSquareType(), SquareType.WORMHOLEEXIT);
+        }
+
+    }
+
+    @Test
+    public void CheckSquares1And100OnwardsAreSetToNormal() throws Exception {
+        Board TestBoard = new Board(10);
+        TestBoard.generateBoard();
+        TestBoard.selectWormHoleEntrances();
+        TestBoard.selectWormHoleEntrances();
+        TestBoard.convertSquareTypes();
+
+        Enum<SquareType> Position1 = TestBoard.getSquareType(1);
+        assertEquals(Position1, SquareType.NORMAL);
+
+
+        Enum<SquareType> Position100 = TestBoard.getSquareType(100);
+        assertEquals(Position100, SquareType.NORMAL);
+
+
+        Enum<SquareType> Position105 = TestBoard.getSquareType(105);
+        assertEquals(Position105, SquareType.NORMAL);
+
+        Enum<SquareType> Position108 = TestBoard.getSquareType(108);
+        assertEquals(Position108, SquareType.NORMAL);
+
+        Enum<SquareType> Position112 = TestBoard.getSquareType(112);
+        assertEquals(Position112, SquareType.NORMAL);
+    }
+
+
 }
 
 

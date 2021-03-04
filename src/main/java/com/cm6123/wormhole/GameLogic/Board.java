@@ -166,22 +166,46 @@ public class Board {
 
   }
 
-  public void ConvertSquareTypes(){
-      for (Square s: this.wormHoleEntranceSquares){
+    /**
+     * Converts all squares in Entrance and Exits arrays.
+     * To appropriate Square types.
+     */
+  public void convertSquareTypes(){
+      for (Square s: this.getWormHoleEntranceSquares()){
           s.setSquareType(SquareType.WORMHOLEENTRANCE);
       }
-      for (Square s: this.wormHoleExitSquares){
+      for (Square s: this.getWormHoleExitSquares()){
           s.setSquareType(SquareType.WORMHOLEEXIT);
       }
   }
 
-  public boolean checkSquareInEntranceList(int selectedSquare){
+    /**
+     * Used in SelectExitSquares Function to.
+     * Insure no squares are set as Entrances and then Exits
+     * @param selectedSquare selected by SelectExitSquares Function
+     * @return true or false
+     */
+  public boolean checkSquareInEntranceList(final int selectedSquare){
        for (Square entrance: this.getWormHoleEntranceSquares()){
             if(boardSquares.get(selectedSquare).equals(entrance)){
                 return false;
          }
        }
       return true;
+  }
+
+    /**
+     * Runs all functions needed to generate.
+     * A complete board with squares and.
+     * Wormhole Entrances and Exits.
+     * @param length - Length of the board
+     */
+  public void completeBoardGeneration(final int length){
+      Board gameBoard = new Board(length);
+      gameBoard.generateBoard();
+      gameBoard.selectWormHoleEntrances();
+      gameBoard.selectWormHoleEntrances();
+      gameBoard.convertSquareTypes();
   }
 
 }
