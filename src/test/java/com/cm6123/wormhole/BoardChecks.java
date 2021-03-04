@@ -1,6 +1,7 @@
 package com.cm6123.wormhole;
 
 import com.cm6123.wormhole.GameLogic.Board;
+import com.cm6123.wormhole.GameLogic.Square;
 import com.cm6123.wormhole.GameLogic.SquareType;
 import org.junit.jupiter.api.Test;
 
@@ -72,10 +73,78 @@ public class BoardChecks {
         assertEquals(TestBoard.getWormHoleEntranceSquares().get(3).getSquareType(), SquareType.NORMAL);
     }
 
-    //Need to create tests for Exits
+    @Test
+    public void WormHoleExitSquaresFilledWithCorrectNumberValidOfItems() throws Exception{
+        Board TestBoard = new Board(10);
+        TestBoard.generateBoard();
+        TestBoard.selectWormHoleExits();
+
+        assertEquals(TestBoard.getWormHoleExitSquares().size(), 10);
+
+    }
+
+    @Test
+    public void WormHoleExitSquaresFilledWithSquaresOfTypeNormal() throws Exception {
+        Board TestBoard = new Board(10);
+        TestBoard.generateBoard();
+        TestBoard.selectWormHoleExits();
+        assertEquals(TestBoard.getWormHoleExitSquares().get(3).getSquareType(), SquareType.NORMAL);
+    }
     //Need to create test to make sure there is no overlap between
     //Entrances and Exits
-    //Need to make tests to check first and ending squares arent coverted
-    //Need to make method to convert items into array to relevant SquareType
+    @Test
+    public void WormHoleEntranceSquaresAndExitSquaresHaveUniqueValues() throws Exception {
+        Board TestBoard = new Board(10);
+        TestBoard.generateBoard();
+        TestBoard.selectWormHoleEntrances();
+        TestBoard.selectWormHoleExits();
 
+
+        boolean allValuesUnique = true;
+        for (Square entrance: TestBoard.getWormHoleEntranceSquares()){
+            for (Square exit: TestBoard.getWormHoleExitSquares()){
+                if(entrance.equals(exit)){
+                    allValuesUnique = false;
+                }
+            }
+           }
+        assertEquals(allValuesUnique, true);
+    }
+
+    @Test
+    public void WormHoleEntranceSquaresAndExitSquaresHaveUniqueValuesCHECKINGTESTFAILS() throws Exception {
+        Board TestBoard = new Board(10);
+        TestBoard.generateBoard();
+
+        TestBoard.getWormHoleEntranceSquares().add(TestBoard.getBoardSquares().get(1));
+        TestBoard.getWormHoleExitSquares().add(TestBoard.getBoardSquares().get(1));
+
+        boolean allValuesUnique = true;
+        for (Square s: TestBoard.getWormHoleEntranceSquares()){
+            boolean overLappingValues = TestBoard.getWormHoleExitSquares().contains(s);
+            if(overLappingValues = true){
+                allValuesUnique = false;
+            }
+        }
+        assertEquals(allValuesUnique, false);
+    }
+
+    //Need to make tests to check first and ending squares arent coverted
+    //Need to make method to convert items into array to relevant SquareType.
+    @Test
+    public void WormHoleEntranceSquaresAndExitSquaresHaveUniqueValuesCHECKINGTESTFAILS() throws Exception {
+        Board TestBoard = new Board(10);
+        TestBoard.generateBoard();
+
+        boolean allValuesUnique = true;
+        for (Square s: TestBoard.getWormHoleEntranceSquares()){
+            boolean overLappingValues = TestBoard.getWormHoleExitSquares().contains(s);
+            if(overLappingValues = true){
+                allValuesUnique = false;
+            }
+        }
+        assertEquals(allValuesUnique, false);
+    }
 }
+
+

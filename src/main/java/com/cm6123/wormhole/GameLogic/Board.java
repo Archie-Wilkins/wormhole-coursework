@@ -61,8 +61,26 @@ public class Board {
      *
      * @return WormHoleEntrances ArrayList.
      **/
+    public ArrayList<Square> getBoardSquares(){
+        return boardSquares;
+    }
+
+    /**
+     * Getter for WormHoleEntrances.
+     *
+     * @return WormHoleEntrances ArrayList.
+     **/
     public ArrayList<Square> getWormHoleEntranceSquares(){
     return wormHoleEntranceSquares;
+    }
+
+    /**
+     * Getter for WormHoleExits.
+     *
+     * @return WormHoleExits ArrayList.
+     **/
+    public ArrayList<Square> getWormHoleExitSquares(){
+        return wormHoleExitSquares;
     }
 
 
@@ -136,19 +154,39 @@ public class Board {
      * Creates array with squares to be turned into Exits.
      **/
   public void selectWormHoleExits() {
-      int numberOfWormHoleEntrances = boardLength;
-      while (wormHoleExitSquares.size() < boardLength) {
+      while (wormHoleExitSquares.size() < this.getBoardLength()) {
           int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
           if ((0 <= selectedSquare) & (selectedSquare <= this.boardSize)) {
               //Reference Contains method ---- https://howtodoinjava.com/java/collections/arraylist/arraylist-contains/
-              if (!wormHoleEntranceSquares.contains(boardSquares.get(selectedSquare))) {
-                  wormHoleEntranceSquares.add(boardSquares.get(selectedSquare));
+              if (checkSquareInEntranceList(selectedSquare) == true) {
+                  wormHoleExitSquares.add(boardSquares.get(selectedSquare));
               }
           }
       }
 
   }
+
+  public void ConvertSquareTypes(){
+      for (Square s: this.wormHoleEntranceSquares){
+          s.setSquareType(SquareType.WORMHOLEENTRANCE);
+      }
+      for (Square s: this.wormHoleExitSquares){
+          s.setSquareType(SquareType.WORMHOLEEXIT);
+      }
+  }
+
+  public boolean checkSquareInEntranceList(int selectedSquare){
+       for (Square entrance: this.getWormHoleEntranceSquares()){
+            if(boardSquares.get(selectedSquare).equals(entrance)){
+                return false;
+         }
+       }
+      return true;
+  }
+
 }
+
+
 
 
 
