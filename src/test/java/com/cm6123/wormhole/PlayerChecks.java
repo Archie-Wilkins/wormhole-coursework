@@ -51,5 +51,12 @@ public class PlayerChecks {
         assertEquals(PlayerBoardPosition3, 1);
     }
 
+    @Test
+    public void testSettingPlayerNewPosition() throws Exception {
+        Player Player1 = new Player("John", 1);
+        Player1.setBoardPosition(5);
+        assertEquals(Player1.getBoardPosition(), 5);
+    }
+
 
 }

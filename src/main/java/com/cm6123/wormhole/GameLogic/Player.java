@@ -44,10 +44,24 @@ public class Player {
     }
 
     /**
+     * Setter for boardposition
+     * @param newPosition - position player moves to
+     */
+    public void setBoardPosition(int newPosition) {
+        this.boardPosition = newPosition;
+    }
+
+
+    /**
      * @return player turn position.
      */
     public int getTurnPosition() {
         return this.turnPosition;
+    }
+
+    public String PlayerWin(){
+        ///NEED TO CREATE THIS FUNCTION
+        System.out.println("PLAYER WINS WOOP");
     }
 
     //Create Dice Constructor
