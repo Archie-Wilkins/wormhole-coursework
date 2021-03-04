@@ -54,5 +54,28 @@ public class BoardChecks {
         assertEquals(boardSize, 100);
     }
 
+    @Test
+    public void WormHoleEntranceSquaresFilledWithCorrectNumberValidOfItems() throws Exception{
+        Board TestBoard = new Board(10);
+        TestBoard.generateBoard();
+        TestBoard.selectWormHoleEntrances();
+
+        assertEquals(TestBoard.getWormHoleEntranceSquares().size(), 10);
+
+    }
+
+    @Test
+    public void WormHoleEntranceSquaresFilledWithSquaresOfTypeNormal() throws Exception {
+        Board TestBoard = new Board(10);
+        TestBoard.generateBoard();
+        TestBoard.selectWormHoleEntrances();
+        assertEquals(TestBoard.getWormHoleEntranceSquares().get(3).getSquareType(), SquareType.NORMAL);
+    }
+
+    //Need to create tests for Exits
+    //Need to create test to make sure there is no overlap between
+    //Entrances and Exits
+    //Need to make tests to check first and ending squares arent coverted
+    //Need to make method to convert items into array to relevant SquareType
 
 }

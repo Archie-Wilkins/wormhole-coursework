@@ -56,14 +56,18 @@ public class Board {
         return this.boardSize;
     }
 
-    //Plan for creating "board"
-    //1)Create an array with the same number
-    // of spaces as "boardsize x boardsize"
-    //2)Populate array with squares
-    //3)Convert length amount of squares into
-    // Wormhole Entrances (Not at position 0 or position -1)
-    //4)Convert length amount of sqaures into
-    // Wormhole Exits (Where not Wormhole Entrances or position 0 or -1)
+    /**
+     * Getter for WormHoleEntrances.
+     *
+     * @return WormHoleEntrances ArrayList.
+     **/
+    public ArrayList<Square> getWormHoleEntranceSquares(){
+    return wormHoleEntranceSquares;
+    }
+
+
+
+
 
     /**
      * Populates arrayList boardSquares with squares.
@@ -112,45 +116,38 @@ public class Board {
         //but it's more intuitive to call for the exact square you want.
     }
 
-    //Take random values from boardSquares
-    //set length number to be wormholes entrances
-    // and set length number to be wormhole exits
-    // where not entrances or position 0 or last position and buffer.
-    //Create arrays for both and append each to relevant array
-    //
-
     //Needs testing.
     /**
      * Creates array with squares to be turned into Entrances.
      **/
-    //public void selectWormHoleEntrances() {
-    //    int numberOfWormHoleEntrances = boardLength;
-    //    while (wormHoleEntranceSquares.size() < boardLength) {
-    //       int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
-    //       if ((0 >= selectedSquare) & (selectedSquare >= this.boardSize)) {
-    //       //Reference .get() method
-    //       wormHoleEntranceSquares.add(boardSquares.get(selectedSquare));
-    //        }
-    //    }
-    //}
+    public void selectWormHoleEntrances() {
+        //Reference .size() method
+        while (wormHoleEntranceSquares.size() < this.getBoardLength()) {
+           int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
+           if ((0 <= selectedSquare) & (selectedSquare <= this.boardSize)) {
+           //Reference .get() method
+           wormHoleEntranceSquares.add(boardSquares.get(selectedSquare));
+           }
+        }
+    }
 
     //Needs testing.
     /**
      * Creates array with squares to be turned into Exits.
      **/
-  //public void selectWormHoleExits() {
-    //  int numberOfWormHoleEntrances = boardLength;
-    //  while (wormHoleExitSquares.size() < boardLength) {
-    //      int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
-    //      if ((0 >= selectedSquare) & (selectedSquare >= this.boardSize)) {
-    //          //Reference Contains method ---- https://howtodoinjava.com/java/collections/arraylist/arraylist-contains/
-    //          if (!wormHoleEntranceSquares.contains(boardSquares.get(selectedSquare))) {
-    //              wormHoleEntranceSquares.add(boardSquares.get(selectedSquare));
-    //          }
-    //      }
-    //  }
+  public void selectWormHoleExits() {
+      int numberOfWormHoleEntrances = boardLength;
+      while (wormHoleExitSquares.size() < boardLength) {
+          int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
+          if ((0 <= selectedSquare) & (selectedSquare <= this.boardSize)) {
+              //Reference Contains method ---- https://howtodoinjava.com/java/collections/arraylist/arraylist-contains/
+              if (!wormHoleEntranceSquares.contains(boardSquares.get(selectedSquare))) {
+                  wormHoleEntranceSquares.add(boardSquares.get(selectedSquare));
+              }
+          }
+      }
 
-  //}
+  }
 }
 
 
