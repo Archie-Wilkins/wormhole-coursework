@@ -136,12 +136,13 @@ public class UserInterface {
             case "Y":
                 System.out.println("Manual Dice Roll Selected");
                 playerAutoRollDice = true;
+                return playerAutoRollDice;
             case "N":
                 System.out.println("Automatic Dice Roll Selected");
                 playerAutoRollDice = false;
-            default: playerUseAutoDice(playerName);
+                return playerAutoRollDice;
+            default: return this.playerUseAutoDice(playerName);
         }
-         return playerAutoRollDice;
     }
 
     //Need to validate the above
