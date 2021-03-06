@@ -2,6 +2,7 @@ package com.cm6123.wormhole.app;
 
 import com.cm6123.wormhole.GameLogic.Board;
 import com.cm6123.wormhole.GameLogic.Player;
+import com.cm6123.wormhole.GameLogic.UserInputValidator;
 import com.cm6123.wormhole.dice.Dice;
 
 import java.util.Scanner;
@@ -15,6 +16,7 @@ public class UserInterface {
      * Scanner for all user input.
      */
     private Scanner sc = new Scanner(System.in);
+    private UserInputValidator uiv = new UserInputValidator();
 
     /**
      * Runs the entire sequence of methods.
@@ -50,16 +52,32 @@ public class UserInterface {
      */
     public void createGameBoard() {
         //VALIDATOR NEEDED FOR INPUT
-        System.out.println("What length board would you like? (5 - 10 squares)");
-        //Create validator For this input
-        //Ensure int between 5-10 entered
-        int boardLength = sc.nextInt();
-        Board gameBoard = new Board(boardLength);
-        gameBoard.completeBoardGeneration();
+        String boardLengthInput = "";
 
-        //Give Player infomation on board
-        System.out.println("The board has " + gameBoard.getBoardSize() + " squares");
-        gameBoard.printWormHolePositions();
+        System.out.println("What length board would you like? (5 - 10 squares)");
+        boardLengthInput = sc.nextLine();
+        if(uiv.checkInputIsInteger(boardLengthInput)){
+            int boardLengthNumber = Integer.parseInt(boardLengthInput);
+            System.out.println(boardLengthNumber);
+            if (uiv.checkInputWithRange(5,10, boardLengthNumber)){
+                Board gameBoard = new Board(boardLengthNumber);
+                gameBoard.completeBoardGeneration();
+
+
+                //Give Player infomation on board
+                System.out.println("The board has " + gameBoard.getBoardSize() + " squares");
+                gameBoard.printWormHolePositions();
+        }else{
+                System.out.println("Invalid input, please enter a number "
+                        +"between 5 and 10");
+                this.createGameBoard();
+            }
+    }
+        else{
+            System.out.println("Invalid input, please enter a number "
+                    +"between 5 and 10");
+            this.createGameBoard();
+        }
     }
 
 
@@ -109,15 +127,23 @@ public class UserInterface {
             case "Y":
                 System.out.println("Manual Dice Roll Selected");
                 playerAutoRollDice = true;
-                return playerAutoRollDice;
             case "N":
                 System.out.println("Automatic Dice Roll Selected");
                 playerAutoRollDice = false;
-                return playerAutoRollDice;
             default: playerUseAutoDice(playerName);
         }
          return playerAutoRollDice;
     }
+
+    //Need to validate the above
+
+    //Functions For:
+    //1) Dice input.
+    //2) Square type get and response.
+    //3) Player moves.
+    //4) Jump to wormHole Exits.
+    //5) Player win.
+    //6) Play again.
 
 
 
