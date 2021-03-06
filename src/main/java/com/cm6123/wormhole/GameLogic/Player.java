@@ -25,6 +25,7 @@ public class Player {
      *
      * @param aName         name of the player.
      * @param playerTurnPosition turn for the player.
+     * @param playerUseAutomaticDice player auto dice or physical dice.
      **/
     public Player(final String aName, final int playerTurnPosition, final boolean playerUseAutomaticDice) {
         this.name = aName;
@@ -49,10 +50,10 @@ public class Player {
     }
 
     /**
-     * Setter for boardposition
+     * Setter for boardposition.
      * @param newPosition - position player moves to
      */
-    public void setBoardPosition(int newPosition) {
+    public void setBoardPosition(final int newPosition) {
         this.boardPosition = newPosition;
     }
 
@@ -64,7 +65,10 @@ public class Player {
         return this.turnPosition;
     }
 
-    public void PlayerWin(){
+    /**
+     * Marks player reaching a winneing square.
+     */
+    public void playerWin(){
         ///NEED TO CREATE THIS FUNCTION
         System.out.println("PLAYER WINS WOOP");
     }

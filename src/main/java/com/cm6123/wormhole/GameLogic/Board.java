@@ -155,7 +155,7 @@ public class Board {
   public void selectWormHoleExits() {
       while (wormHoleExitSquares.size() < this.getBoardLength()) {
           int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
-          if ((0 < selectedSquare) & (selectedSquare < this.boardSize -1 )) {
+          if ((0 < selectedSquare) & (selectedSquare < this.boardSize -1)) {
               //Reference Contains method ---- https://howtodoinjava.com/java/collections/arraylist/arraylist-contains/
               //if ((checkSquareInEntranceList(selectedSquare) == true) && (nonStartingOrFinishingValueSelected(selectedSquare) == true)) {
               if ((this.checkSquareInEntranceList(selectedSquare) == true) && (this.checkSquareNotAlreadyInExitList(selectedSquare))) {
@@ -220,17 +220,21 @@ public class Board {
       this.convertSquareTypes();
   }
 
+    /**
+     * Prints positions of all wormhole.
+     * entrances and exits of Gameboard.
+     */
         public void printWormHolePositions(){
-            String Entrances = "";
-            String Exits = "";
+            String entrances = "";
+            String exits = "";
             for (Square s1: this.getWormHoleExitSquares()){
-                Exits = Exits + s1.getSquarePosition() + ",";
+                exits = exits + s1.getSquarePosition() + ",";
             }
             for (Square s2: this.getWormHoleEntranceSquares()){
-                Entrances = Entrances + s2.getSquarePosition() + ",";
+                entrances = entrances + s2.getSquarePosition() + ",";
             }
-            System.out.println("WormHole Entrances are on squares: " + Entrances);
-            System.out.println("WormHole Exits are on squares: " + Exits + ".");
+            System.out.println("WormHole Entrances are on squares: " + entrances);
+            System.out.println("WormHole Exits are on squares: " + exits + ".");
         }
 
 }
