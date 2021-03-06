@@ -58,7 +58,6 @@ public class UserInterface {
         boardLengthInput = sc.nextLine();
         if(uiv.checkInputIsInteger(boardLengthInput)){
             int boardLengthNumber = Integer.parseInt(boardLengthInput);
-            System.out.println(boardLengthNumber);
             if (uiv.checkInputWithRange(5,10, boardLengthNumber)){
                 Board gameBoard = new Board(boardLengthNumber);
                 gameBoard.completeBoardGeneration();
@@ -86,11 +85,18 @@ public class UserInterface {
      * people will be playing.
      * @return numberOfPlayers
      */
+
+    ///VALIDATE ME
     public int amountOfPlayers() {
         System.out.println("How Many Players Would you like? (2-6)");
-        int numberOfPlayers = sc.nextInt();
-        //VALIDATOR HERE
-        return numberOfPlayers;
+        String numberOfPlayers = sc.nextLine();
+        if (uiv.checkInputIsInteger(numberOfPlayers)) {
+            int numberOfPlayersInteger = Integer.parseInt(numberOfPlayers);
+            if (uiv.checkInputWithRange(2, 6, numberOfPlayersInteger)) {
+                return numberOfPlayersInteger;
+            }
+        }
+        return amountOfPlayers();
     }
 
     /**
@@ -102,10 +108,13 @@ public class UserInterface {
      */
     public String namePlayer(final int playerNumber){
             System.out.println("Please Enter Player "
-                    + (playerNumber) + "'s name?");
+                    + (playerNumber) + "'s name? (Letters Only Please, No Spaces)");
             String playerName = sc.nextLine();
-            //VALIDATOR HERE
-            return playerName;
+            if(uiv.checkInputOnlyContainsLetters(playerName)){
+                return playerName;
+            }else{
+                return this.namePlayer(playerNumber);
+            }
         }
 
     /**

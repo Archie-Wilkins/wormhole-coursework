@@ -34,8 +34,23 @@ public class UserInputValidatorChecks {
         assertEquals(testValidator.checkInputIsInteger("4"), true);
 
         assertEquals(testValidator.checkInputIsInteger("erthesrth"), false);
+    }
 
+    @Test
+    public void checkInputOnlyContainsLettersTest() throws Exception{
+        UserInputValidator testValidator = new UserInputValidator();
 
+        //Testing expected input
+        assertEquals(testValidator.checkInputOnlyContainsLetters("HarryPotter"), true);
+
+        //Testing rejecting numbers
+        assertEquals(testValidator.checkInputOnlyContainsLetters("5"), false);
+
+        //Testing non-letter symbols
+        assertEquals(testValidator.checkInputOnlyContainsLetters("!"), false);
+
+        //Testing Names with spaces
+        assertEquals(testValidator.checkInputOnlyContainsLetters("Harry Potter"), false);
     }
 
 }

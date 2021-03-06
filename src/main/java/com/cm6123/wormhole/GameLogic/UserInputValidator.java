@@ -22,6 +22,19 @@ public class UserInputValidator {
         }
     }
 
+    public boolean checkInputOnlyContainsLetters(String givenInput){
+
+        for(int i = 0; i < givenInput.length(); i++){
+            //Reference Chart At to get characters in string.
+            char letter = givenInput.charAt(i);
+            //REFERENCE THIS FOR LETTER VALIDATION BELOW
+            //https://www.programiz.com/java-programming/examples/alphabet
+            if((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z') ){
+            } else {return false;}
+        }
+        return true;
+    }
+
 }
 
 
