@@ -16,6 +16,10 @@ public class UserInterface {
      * Scanner for all user input.
      */
     private Scanner sc = new Scanner(System.in);
+
+    /**
+     * Validator Functions.
+     */
     private UserInputValidator uiv = new UserInputValidator();
 
     /**
@@ -71,8 +75,7 @@ public class UserInterface {
                         +"between 5 and 10");
                 this.createGameBoard();
             }
-    }
-        else{
+        } else{
             System.out.println("Invalid input, please enter a number "
                     +"between 5 and 10");
             this.createGameBoard();
