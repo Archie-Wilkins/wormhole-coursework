@@ -161,28 +161,35 @@ public class BoardChecks {
 
     @Test
     public void CheckSquares1And100OnwardsAreSetToNormal() throws Exception {
-        Board TestBoard = new Board(10);
-        TestBoard.generateBoard();
-        TestBoard.selectWormHoleEntrances();
-        TestBoard.selectWormHoleEntrances();
-        TestBoard.convertSquareTypes();
 
-        Enum<SquareType> Position1 = TestBoard.getSquareType(1);
-        assertEquals(Position1, SquareType.NORMAL);
+        int testRepeats = 100;
+
+        for (int count = 0; count < testRepeats; count++) {
+            Board TestBoard = new Board(10);
+            TestBoard.generateBoard();
+            TestBoard.selectWormHoleEntrances();
+            TestBoard.selectWormHoleEntrances();
+            TestBoard.convertSquareTypes();
+
+            Enum<SquareType> Position1 = TestBoard.getSquareType(1);
+            assertEquals(Position1, SquareType.NORMAL);
 
 
-        Enum<SquareType> Position100 = TestBoard.getSquareType(100);
-        assertEquals(Position100, SquareType.NORMAL);
+            Enum<SquareType> Position100 = TestBoard.getSquareType(100);
+            assertEquals(Position100, SquareType.NORMAL);
 
 
-        Enum<SquareType> Position105 = TestBoard.getSquareType(105);
-        assertEquals(Position105, SquareType.NORMAL);
+            Enum<SquareType> Position105 = TestBoard.getSquareType(105);
+            assertEquals(Position105, SquareType.NORMAL);
 
-        Enum<SquareType> Position108 = TestBoard.getSquareType(108);
-        assertEquals(Position108, SquareType.NORMAL);
+            Enum<SquareType> Position108 = TestBoard.getSquareType(108);
+            assertEquals(Position108, SquareType.NORMAL);
 
-        Enum<SquareType> Position112 = TestBoard.getSquareType(112);
-        assertEquals(Position112, SquareType.NORMAL);
+            Enum<SquareType> Position112 = TestBoard.getSquareType(112);
+            assertEquals(Position112, SquareType.NORMAL);
+            System.out.println(TestBoard.getBoardSize());
+            System.out.println(count);
+        }
     }
 
 

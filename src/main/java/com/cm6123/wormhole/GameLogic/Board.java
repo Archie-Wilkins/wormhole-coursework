@@ -84,9 +84,6 @@ public class Board {
     }
 
 
-
-
-
     /**
      * Populates arrayList boardSquares with squares.
      * Number of squares is boardLength x boardLength
@@ -142,9 +139,11 @@ public class Board {
         //Reference .size() method
         while (wormHoleEntranceSquares.size() < this.getBoardLength()) {
            int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
-           if ((0 <= selectedSquare) & (selectedSquare <= this.boardSize)) {
-           //Reference .get() method
-           wormHoleEntranceSquares.add(boardSquares.get(selectedSquare));
+           if ((1 < selectedSquare) && (selectedSquare < this.boardSize - 1)) {
+               if(this.checkSquareInEntranceList(selectedSquare) == true) {
+                   //Reference .get() method
+                   wormHoleEntranceSquares.add(boardSquares.get(selectedSquare));
+               }
            }
         }
     }
@@ -156,14 +155,14 @@ public class Board {
   public void selectWormHoleExits() {
       while (wormHoleExitSquares.size() < this.getBoardLength()) {
           int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
-          if ((0 <= selectedSquare) & (selectedSquare <= this.boardSize)) {
+          if ((0 < selectedSquare) & (selectedSquare < this.boardSize -1 )) {
               //Reference Contains method ---- https://howtodoinjava.com/java/collections/arraylist/arraylist-contains/
-              if (checkSquareInEntranceList(selectedSquare) == true) {
+              //if ((checkSquareInEntranceList(selectedSquare) == true) && (nonStartingOrFinishingValueSelected(selectedSquare) == true)) {
+              if ((this.checkSquareInEntranceList(selectedSquare) == true) && (this.checkSquareNotAlreadyInExitList(selectedSquare))) {
                   wormHoleExitSquares.add(boardSquares.get(selectedSquare));
               }
           }
       }
-
   }
 
     /**
@@ -180,10 +179,10 @@ public class Board {
   }
 
     /**
-     * Used in SelectExitSquares Function to.
-     * Insure no squares are set as Entrances and then Exits
-     * @param selectedSquare selected by SelectExitSquares Function
-     * @return true or false
+     * Used to check no squares are being added to entrances or.
+     * exits are already presesnt in entrances.
+     * @param selectedSquare selected by SelectExitSquares Function.
+     * @return true or false.
      */
   public boolean checkSquareInEntranceList(final int selectedSquare){
        for (Square entrance: this.getWormHoleEntranceSquares()){
@@ -193,20 +192,46 @@ public class Board {
        }
       return true;
   }
+    /**
+     * Used to check no squares are being added to entrances or.
+     * exits are already presesnt in exits.
+     * @param selectedSquare selected by SelectExitSquares Function.
+     * @return true or false.
+     */
+  public boolean checkSquareNotAlreadyInExitList(final int selectedSquare){
+      for (Square exit: this.getWormHoleExitSquares()){
+          if(boardSquares.get(selectedSquare).equals(exit)){
+              return false; //faslse = failure.
+          }
+      }
+      return true;
+  }
+
 
     /**
      * Runs all functions needed to generate.
      * A complete board with squares and.
      * Wormhole Entrances and Exits.
-     * @param length - Length of the board
      */
-  public void completeBoardGeneration(final int length){
-      Board gameBoard = new Board(length);
-      gameBoard.generateBoard();
-      gameBoard.selectWormHoleEntrances();
-      gameBoard.selectWormHoleEntrances();
-      gameBoard.convertSquareTypes();
+  public void completeBoardGeneration() {
+      this.generateBoard();
+      this.selectWormHoleEntrances();
+      this.selectWormHoleExits();
+      this.convertSquareTypes();
   }
+
+        public void printWormHolePositions(){
+            String Entrances = "";
+            String Exits = "";
+            for (Square s1: this.getWormHoleExitSquares()){
+                Exits = Exits + s1.getSquarePosition() + ",";
+            }
+            for (Square s2: this.getWormHoleEntranceSquares()){
+                Entrances = Entrances + s2.getSquarePosition() + ",";
+            }
+            System.out.println("WormHole Entrances are on squares: " + Entrances);
+            System.out.println("WormHole Exits are on squares: " + Exits + ".");
+        }
 
 }
 
