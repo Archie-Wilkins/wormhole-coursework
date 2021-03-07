@@ -36,23 +36,4 @@ public class Dice {
     return tempRoll.intValue();
   }
 
-
-  ///NEEDS TO BE CHANGED TO INCORPORATE VALIDATOR
-  // Reference https://www.w3schools.com/java/java_try_catch.asp
-
-  //public int userInputRoll(){
-  //  Scanner sc = new Scanner(System.in);
-  //  System.out.println("Please roll the dice PLAYER XXXXXXXX");
-  //  System.out.println("What did you roll? (Enter Number)");
-  //  int userInput = 0;
-  //  try {
-  //    userInput = sc.nextInt();
-  //    return userInput;
-  //  }catch(Exception e){
-  //  System.out.println("Invalid Input Please enter a number betweeen 1 and "
-  //  + getFaces());
-  //  userInputRoll();
-  //   }
-  //  return userInput;
-  //}
 }

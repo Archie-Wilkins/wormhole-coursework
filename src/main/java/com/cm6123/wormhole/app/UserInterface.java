@@ -87,7 +87,7 @@ public class UserInterface {
                     Square PlayerSquare = gameBoard.getBoardSquares().get(playerNewPosition);
                     SquareType playerSquareType = PlayerSquare.getSquareType();
                     int playerSquarePos = PlayerSquare.getSquarePosition();
-                    switch(playerSquareType){
+                    switch(playerSquareType) {
                         case NORMAL:
                             System.out.println(" which is a normal Square. ");
                             break;
@@ -95,17 +95,25 @@ public class UserInterface {
                             System.out.println(" which is a wormhole exit. ");
                         case WORMHOLEENTRANCE:
                             System.out.println(" which is a wormhole entrance...");
-                            //WormHole Sender
+                            int playerExitPosition = gameBoard.getRandomWormholeExitPosition();
+                            p.setBoardPosition(playerExitPosition);
+                            System.out.println(">>>>>>>>>>> The player has been teleported to square " + p.getBoardPosition());
                             break;
-
                     }
+                    if(p.getBoardPosition() > gameBoard.getBoardSize()){
+                        System.out.println(p.getName() + " has WON!!!!!!");
+                        playerWon = true;
+                        }
+                    }
+
+
                     //If square type = wormholeEntrance.
                     //Move through Wormhole.
                     //If player position >= boardSize, player win.
 
                 }
             }
-    }
+
 
     /**
      * Runs all functions needed to generate.

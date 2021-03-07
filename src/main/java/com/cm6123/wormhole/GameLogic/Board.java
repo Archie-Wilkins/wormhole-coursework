@@ -207,6 +207,13 @@ public class Board {
       return true;
   }
 
+  //Create test
+  public int getRandomWormholeExitPosition(){
+      int randomNumber = (int)Math.ceil(Math.random() * this.getWormHoleExitSquares().size());
+      Square randomSquare = this.getWormHoleExitSquares().get(randomNumber);
+      return randomSquare.getSquarePosition();
+  }
+
 
     /**
      * Runs all functions needed to generate.
