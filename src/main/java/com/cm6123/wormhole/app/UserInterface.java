@@ -103,16 +103,37 @@ public class UserInterface {
                     if(p.getBoardPosition() > gameBoard.getBoardSize()){
                         System.out.println(p.getName() + " has WON!!!!!!");
                         playerWon = true;
+                        Players.clear();
+                        this.playAgain();
                         }
+
                     }
-
-
-                    //If square type = wormholeEntrance.
-                    //Move through Wormhole.
-                    //If player position >= boardSize, player win.
-
                 }
             }
+
+    private void playAgain() {
+        String playerPlayAgain = "";
+
+        System.out.println("Would you like to play again? 'Y' to play again, 'N' to exit game.");
+        playerPlayAgain = sc.nextLine();
+        switch(playerPlayAgain){
+            case "Y":
+                this.playGame();
+                break;
+            case "N":
+                System.out.println("Thanks for playing :) ");
+                System.out.println("Exiting Game");
+                //System.exit Reference
+                // https://www.delftstack.com/howto/java/java-end-program/#:~:text=To%20end%20a%20Java%20program,program%20that%20we%20are%20running.
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Invalid Input, please enter 'Y' or 'N'. ");
+                //Clear Array method found here
+                // https://beginnersbook.com/2013/12/how-to-empty-an-arraylist-in-java/
+                this.playAgain();
+        }
+    }
 
 
     /**

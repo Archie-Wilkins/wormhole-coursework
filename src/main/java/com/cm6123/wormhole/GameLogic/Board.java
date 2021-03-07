@@ -90,7 +90,7 @@ public class Board {
      **/
     public void generateBoard() {
         //For loop here to set squares
-        final int boardBuffer = 13;
+        final int boardBuffer = 50;
         //Tests showed mistake where I put getBoardLength() not size
         for (int i = 1; i < this.getBoardSize() + boardBuffer; i++) {
             //+12 to boardLength to create excess squares
@@ -210,7 +210,7 @@ public class Board {
   //Create test
   public int getRandomWormholeExitPosition(){
       int randomNumber = (int)Math.ceil(Math.random() * this.getWormHoleExitSquares().size());
-      Square randomSquare = this.getWormHoleExitSquares().get(randomNumber);
+      Square randomSquare = this.getWormHoleExitSquares().get(randomNumber -1);
       return randomSquare.getSquarePosition();
   }
 
