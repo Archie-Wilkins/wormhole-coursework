@@ -20,6 +20,7 @@ public class Player {
      * Whether player use's automatic dice or not.
      **/
     private final boolean automaticDice;
+
     /**
      *Construct a player, with a name, boardPosition(initally 0), turn position.
      *
@@ -57,13 +58,17 @@ public class Player {
         this.boardPosition = newPosition;
     }
 
-
     /**
      * @return player turn position.
      */
     public int getTurnPosition() {
         return this.turnPosition;
     }
+
+    /**
+     * @return player use manual or physical dice.
+     */
+    public boolean getPlayerUseAutoDice(){return this.automaticDice;}
 
     /**
      * Marks player reaching a winneing square.
