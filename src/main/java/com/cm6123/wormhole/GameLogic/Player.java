@@ -13,10 +13,6 @@ public class Player {
      **/
     private int boardPosition;
     /**
-     * Name of turnPosition.
-     **/
-    private final int turnPosition;
-    /**
      * Whether player use's automatic dice or not.
      **/
     private final boolean automaticDice;
@@ -25,13 +21,11 @@ public class Player {
      *Construct a player, with a name, boardPosition(initally 0), turn position.
      *
      * @param aName         name of the player.
-     * @param playerTurnPosition turn for the player.
      * @param playerUseAutomaticDice player auto dice or physical dice.
      **/
-    public Player(final String aName, final int playerTurnPosition, final boolean playerUseAutomaticDice) {
+    public Player(final String aName, final boolean playerUseAutomaticDice) {
         this.name = aName;
         this.boardPosition = 1;
-        this.turnPosition = playerTurnPosition;
         this.automaticDice = playerUseAutomaticDice;
 
     }
@@ -57,28 +51,12 @@ public class Player {
     public void setBoardPosition(final int newPosition) {
         this.boardPosition = newPosition;
     }
-
-    /**
-     * @return player turn position.
-     */
-    public int getTurnPosition() {
-        return this.turnPosition;
-    }
-
     /**
      * @return player use manual or physical dice.
      */
-    public boolean getPlayerUseAutoDice(){return this.automaticDice;}
-
-    /**
-     * Marks player reaching a winneing square.
-     */
-    public void playerWin(){
-        ///NEED TO CREATE THIS FUNCTION
-        System.out.println("PLAYER WINS WOOP");
+    public boolean getPlayerUseAutoDice() {
+        return this.automaticDice;
     }
-
-
 
 }
 

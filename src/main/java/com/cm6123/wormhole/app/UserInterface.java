@@ -50,7 +50,7 @@ public class UserInterface {
             String playerName = this.namePlayer(playerNumber);
             boolean playerUseAutoDice = this.playerUseAutoDice(playerName);
 
-            Player player = new Player(playerName, playerNumber, playerUseAutoDice);
+            Player player = new Player(playerName, playerUseAutoDice);
             players.add(player);
             playersCreated++;
         }
@@ -59,13 +59,6 @@ public class UserInterface {
             System.out.println("Let's play.");
             boolean playerWon = false;
             while(playerWon == false){
-                 //Round Summary - Position of all players
-                //For each in players array:
-                //1) Player Roll Dice
-                //2) Player Move
-                //3) Player land on square info report
-                //4) If player land on a wormhole move player
-                //5) If player.getPosition() > BoardSize -- PLAYER WIN
 
                 for (Player p: players){
                     int playerMoveSquares = 0;
@@ -147,7 +140,6 @@ public class UserInterface {
      * @return generated gameBoard or recalls function.
      */
     public Board createGameBoard() {
-        //VALIDATOR NEEDED FOR INPUT
         String boardLengthInput = "";
 
         System.out.println("What length board would you like? (5 - 10 squares)");
@@ -158,8 +150,7 @@ public class UserInterface {
                 Board gameBoard = new Board(boardLengthNumber);
                 gameBoard.completeBoardGeneration();
 
-
-                //Give Player infomation on board
+                //Gives Player infomation on board
                 System.out.println("Thankyou, the board has " + gameBoard.getBoardSize() + " squares");
                 gameBoard.printWormHolePositions();
                 return gameBoard;
