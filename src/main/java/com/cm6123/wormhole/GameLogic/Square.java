@@ -25,7 +25,7 @@ public class Square {
 
         /**
          * Getter for square positions.
-         * @return squarePosition -1 (position 1-113)
+         * @return squarePosition -1 (position 0-112)
          **/
         public int getSquarePosition() {
             return squarePosition - 1;

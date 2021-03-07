@@ -10,23 +10,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BoardChecks {
 
     @Test
+    //
     public void BoardGeneratesSquaresWithCorrectPositions() throws Exception {
         Board TestBoard = new Board(10);
         TestBoard.generateBoard();
 
+        //Square position is -1 from intutive answer due to
+        //accomdating for lists starting from 0.
         int SquarePosition1 = TestBoard.getSquarePosition(1);
-        assertEquals(SquarePosition1, 1);
+        assertEquals(SquarePosition1, 0);
 
         int SquarePosition64 = TestBoard.getSquarePosition(64);
-        assertEquals(SquarePosition64, 64);
+        assertEquals(SquarePosition64, 63);
 
         int SquarePosition99 = TestBoard.getSquarePosition(99);
-        assertEquals(SquarePosition99, 99);
+        assertEquals(SquarePosition99, 98);
 
         int SquarePosition100 = TestBoard.getSquarePosition(100);
-        assertEquals(SquarePosition100, 100);
+        assertEquals(SquarePosition100, 99);
 
-        int SquarePosition112 = TestBoard.getSquarePosition(112);
+        int SquarePosition112 = TestBoard.getSquarePosition(113);
         assertEquals(SquarePosition112, 112);
     }
 

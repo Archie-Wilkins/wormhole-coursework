@@ -1,6 +1,10 @@
 package com.cm6123.wormhole.app;
 
-import com.cm6123.wormhole.GameLogic.*;
+import com.cm6123.wormhole.GameLogic.Board;
+import com.cm6123.wormhole.GameLogic.Player;
+import com.cm6123.wormhole.GameLogic.Square;
+import com.cm6123.wormhole.GameLogic.SquareType;
+import com.cm6123.wormhole.GameLogic.UserInputValidator;
 import com.cm6123.wormhole.dice.Dice;
 
 import java.util.ArrayList;
@@ -24,7 +28,7 @@ public class UserInterface {
     /**
      * ArrayList to store all players.
      */
-    private ArrayList<Player> Players = new ArrayList<>();
+    private ArrayList<Player> players = new ArrayList<>();
 
     /**
      * Runs the entire sequence of methods.
@@ -47,7 +51,7 @@ public class UserInterface {
             boolean playerUseAutoDice = this.playerUseAutoDice(playerName);
 
             Player player = new Player(playerName, playerNumber, playerUseAutoDice);
-            Players.add(player);
+            players.add(player);
             playersCreated++;
         }
 
@@ -55,7 +59,7 @@ public class UserInterface {
             System.out.println("Let's play.");
             boolean playerWon = false;
             while(playerWon == false){
-                //Round Summary - Position of all players
+                 //Round Summary - Position of all players
                 //For each in players array:
                 //1) Player Roll Dice
                 //2) Player Move
@@ -63,15 +67,14 @@ public class UserInterface {
                 //4) If player land on a wormhole move player
                 //5) If player.getPosition() > BoardSize -- PLAYER WIN
 
-                for (Player p: Players){
+                for (Player p: players){
                     int playerMoveSquares = 0;
 
                     //Getting Player Roll
                     if(p.getPlayerUseAutoDice()){
                         playerMoveSquares = gameDice.roll();
                         System.out.println(p.getName() + " rolled a " + playerMoveSquares);
-                    }
-                    else{
+                    } else{
                         //DICE INPUT FUNCTION
                         playerMoveSquares = this.playerDiceInput(p.getName());
                         System.out.println(p.getName() + " rolled a " + playerMoveSquares);
@@ -84,9 +87,9 @@ public class UserInterface {
                     System.out.print(p.getName() + " landed on Square " + p.getBoardPosition());
 
                     //Determining player square type.
-                    Square PlayerSquare = gameBoard.getBoardSquares().get(playerNewPosition);
-                    SquareType playerSquareType = PlayerSquare.getSquareType();
-                    int playerSquarePos = PlayerSquare.getSquarePosition();
+                    Square playerSquare = gameBoard.getBoardSquares().get(playerNewPosition);
+                    SquareType playerSquareType = playerSquare.getSquareType();
+                    int playerSquarePos = playerSquare.getSquarePosition();
                     switch(playerSquareType) {
                         case NORMAL:
                             System.out.println(" which is a normal Square. ");
@@ -99,14 +102,15 @@ public class UserInterface {
                             p.setBoardPosition(playerExitPosition);
                             System.out.println(">>>>>>>>>>> The player has been teleported to square " + p.getBoardPosition());
                             break;
+                        default:
+                            System.out.println("Error has occured.");
                     }
                     if(p.getBoardPosition() > gameBoard.getBoardSize()){
                         System.out.println(p.getName() + " has WON!!!!!!");
                         playerWon = true;
-                        Players.clear();
+                        players.clear();
                         this.playAgain();
                         }
-
                     }
                 }
             }
@@ -140,6 +144,7 @@ public class UserInterface {
      * Runs all functions needed to generate.
      * A complete board with squares and.
      * Wormhole Entrances and Exits.
+     * @return generated gameBoard or recalls function.
      */
     public Board createGameBoard() {
         //VALIDATOR NEEDED FOR INPUT
@@ -214,8 +219,6 @@ public class UserInterface {
      * Use Manual dice = false.
      */
     public boolean playerUseAutoDice(final String playerName) {
-        //Player use automatic dice yes or no.
-        //Unfinished
         boolean playerAutoRollDice = true;
 
         System.out.println(playerName + " do you want to roll the dice or should "
@@ -234,16 +237,13 @@ public class UserInterface {
         }
     }
 
-    //Need to validate the above
-
-    //Functions For:
-    //1) Dice input.
-    //2) Square type get and response.
-    //3) Player moves.
-    //4) Jump to wormHole Exits.
-    //5) Player win.
-    //6) Play again.
-    public int playerDiceInput(String playerName){
+    /**
+     * Asks the player to input the number they rolled.
+     * @param playerName - Used to identify to the players
+     *                   who needs to roll the dice.
+     * @return totalDiceValue.
+     */
+    public int playerDiceInput(final String playerName){
         int validInputs = 0;
         int totalDiceValue = 0;
         while(validInputs != 2){

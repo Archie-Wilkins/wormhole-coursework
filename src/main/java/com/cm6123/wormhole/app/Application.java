@@ -24,7 +24,7 @@ public final class Application {
 
     logger.info("Application Started with args:{}", String.join(",", args));
 
-
+    //Game
     UserInterface commandConsoleInterface = new UserInterface();
     commandConsoleInterface.playGame();
 

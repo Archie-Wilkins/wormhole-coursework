@@ -207,7 +207,10 @@ public class Board {
       return true;
   }
 
-  //Create test
+    /**
+     * Retrieves a randomly selected wormhole exits position.
+     * @return randomSquarePosition (int)
+     */
   public int getRandomWormholeExitPosition(){
       int randomNumber = (int)Math.ceil(Math.random() * this.getWormHoleExitSquares().size());
       Square randomSquare = this.getWormHoleExitSquares().get(randomNumber -1);
