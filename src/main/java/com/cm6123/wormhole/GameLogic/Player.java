@@ -1,8 +1,5 @@
 package com.cm6123.wormhole.GameLogic;
 
-//import com.cm6123.wormhole.dice.Dice;
-//import java.util.Scanner;
-
 public class Player {
     /**
      * Name of player.

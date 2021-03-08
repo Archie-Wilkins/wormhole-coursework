@@ -139,7 +139,7 @@ public class UserInterface {
      * Wormhole Entrances and Exits.
      * @return generated gameBoard or recalls function.
      */
-    public Board createGameBoard() {
+    private Board createGameBoard() {
         String boardLengthInput = "";
 
         System.out.println("What length board would you like? (5 - 10 squares)");
@@ -172,7 +172,7 @@ public class UserInterface {
      * people will be playing.
      * @return numberOfPlayers
      */
-    public int amountOfPlayers() {
+    private int amountOfPlayers() {
         System.out.println("How Many Players Would you like? (2-6)");
         String numberOfPlayers = sc.nextLine();
         if (uiv.checkInputIsInteger(numberOfPlayers)) {
@@ -191,7 +191,7 @@ public class UserInterface {
      *                     turn).
      * @return playerName.
      */
-    public String namePlayer(final int playerNumber){
+    private String namePlayer(final int playerNumber){
             System.out.println("Please Enter Player "
                     + (playerNumber) + "'s name? (Letters Only Please, No Spaces)");
             String playerName = sc.nextLine();
@@ -209,7 +209,7 @@ public class UserInterface {
      * @return playerAutoRollDice - Use auto dice = true.
      * Use Manual dice = false.
      */
-    public boolean playerUseAutoDice(final String playerName) {
+    private boolean playerUseAutoDice(final String playerName) {
         boolean playerAutoRollDice = true;
 
         System.out.println(playerName + " do you want to roll the dice or should "
@@ -234,7 +234,7 @@ public class UserInterface {
      *                   who needs to roll the dice.
      * @return totalDiceValue.
      */
-    public int playerDiceInput(final String playerName){
+    private int playerDiceInput(final String playerName){
         int validInputs = 0;
         int totalDiceValue = 0;
         while(validInputs != 2){
@@ -256,7 +256,7 @@ public class UserInterface {
      * Prints positions of all wormhole.
      * entrances and exits of Gameboard.
      */
-    public void printWormHolePositions(Board selectedBoard){
+    private void printWormHolePositions(Board selectedBoard){
         String entrances = "";
         String exits = "";
         for (Square s1: selectedBoard.getWormHoleExitSquares()){
