@@ -152,7 +152,7 @@ public class UserInterface {
 
                 //Gives Player infomation on board
                 System.out.println("Thankyou, the board has " + gameBoard.getBoardSize() + " squares");
-                gameBoard.printWormHolePositions();
+                this.printWormHolePositions(gameBoard);
                 return gameBoard;
         }else{
                 System.out.println("Invalid input, please enter a number "
@@ -250,6 +250,23 @@ public class UserInterface {
         }
        }
         return totalDiceValue;
+    }
+
+    /**
+     * Prints positions of all wormhole.
+     * entrances and exits of Gameboard.
+     */
+    public void printWormHolePositions(Board selectedBoard){
+        String entrances = "";
+        String exits = "";
+        for (Square s1: selectedBoard.getWormHoleExitSquares()){
+            exits = exits + s1.getSquarePosition() + ",";
+        }
+        for (Square s2: selectedBoard.getWormHoleEntranceSquares()){
+            entrances = entrances + s2.getSquarePosition() + ",";
+        }
+        System.out.println("WormHole Entrances are on squares: " + entrances);
+        System.out.println("WormHole Exits are on squares: " + exits + ".");
     }
 
 

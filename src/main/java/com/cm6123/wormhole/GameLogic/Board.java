@@ -230,22 +230,7 @@ public class Board {
       this.convertSquareTypes();
   }
 
-    /**
-     * Prints positions of all wormhole.
-     * entrances and exits of Gameboard.
-     */
-        public void printWormHolePositions(){
-            String entrances = "";
-            String exits = "";
-            for (Square s1: this.getWormHoleExitSquares()){
-                exits = exits + s1.getSquarePosition() + ",";
-            }
-            for (Square s2: this.getWormHoleEntranceSquares()){
-                entrances = entrances + s2.getSquarePosition() + ",";
-            }
-            System.out.println("WormHole Entrances are on squares: " + entrances);
-            System.out.println("WormHole Exits are on squares: " + exits + ".");
-        }
+
 
 }
 
