@@ -11,9 +11,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
-    //validate input
-    //application class only contains main method.
-    //p
 
     /**
      * Scanner for all user input.
@@ -38,7 +35,7 @@ public class UserInterface {
         Dice gameDice = new Dice(12);
         System.out.println("Welcome to Wormhole!");
 
-        //VARIOUS CONSTRUCTORS
+        //VARIOUS BOARD SET UP FUNCTIONS
         Board gameBoard = createGameBoard();
 
         int amountOfPlayers = amountOfPlayers();
@@ -55,7 +52,7 @@ public class UserInterface {
             playersCreated++;
         }
 
-             //Put Game Sequence Here
+             //Game Sequence Here
             System.out.println("Let's play.");
             boolean playerWon = false;
             while(playerWon == false){
@@ -101,7 +98,17 @@ public class UserInterface {
                     if(p.getBoardPosition() > gameBoard.getBoardSize()){
                         System.out.println(p.getName() + " has WON!!!!!!");
                         playerWon = true;
+                        //Clear Array method found here
+                        //Link to site split across two lines to conform
+                        //to checkstyles rules
+                        //Singh, C., n.d. How to empty an ArrayList in Java.
+                        // [online] beginnersbook.com.
+                        // Available at:
+                        // <https://beginnersbook.com/2013/12/how-to-empty-an-
+                        // arraylist-in-java/>
+                        // [Accessed 8 March 2021].
                         players.clear();
+                        //End of reference
                         this.playAgain();
                         }
                     }
@@ -121,13 +128,18 @@ public class UserInterface {
                 System.out.println("Thanks for playing :) ");
                 System.out.println("Exiting Game");
                 //System.exit Reference
-                // https://www.delftstack.com/howto/java/java-end-program/#:~:text=To%20end%20a%20Java%20program,program%20that%20we%20are%20running.
+                //Link is split across three lines to conform to
+                //Checkstyle rules
+                //Delft Stack. 2020. End a Java Program.[online]
+                // Available at: <https://www.delftstack.com/howto/java
+                // /java-end-program/#:~:text=To%20end%20a%20Java%20program,
+                // program%20that%20we%20are%20running>
+                // [Accessed 8 March 2021].
                 System.exit(0);
+                //End of reference
                 break;
             default:
                 System.out.println("Invalid Input, please enter 'Y' or 'N'. ");
-                //Clear Array method found here
-                // https://beginnersbook.com/2013/12/how-to-empty-an-arraylist-in-java/
                 this.playAgain();
         }
     }
@@ -255,19 +267,28 @@ public class UserInterface {
     /**
      * Prints positions of all wormhole.
      * entrances and exits of Gameboard.
+     * @param selectedBoard - type Board
      */
-    private void printWormHolePositions(Board selectedBoard){
+    private void printWormHolePositions(final Board selectedBoard){
         String entrances = "";
         String exits = "";
-        for (Square s1: selectedBoard.getWormHoleExitSquares()){
-            exits = exits + s1.getSquarePosition() + ",";
+        int arrayLength = selectedBoard.getWormHoleExitSquares().size();
+        for (Square s1: selectedBoard.getWormHoleExitSquares()) {
+            if (s1 == selectedBoard.getWormHoleExitSquares().get(arrayLength-1)) {
+                exits = exits + s1.getSquarePosition() + ".";
+            } else {
+                exits = exits + s1.getSquarePosition() + ",";
+            }
         }
-        for (Square s2: selectedBoard.getWormHoleEntranceSquares()){
-            entrances = entrances + s2.getSquarePosition() + ",";
-        }
-        System.out.println("WormHole Entrances are on squares: " + entrances);
-        System.out.println("WormHole Exits are on squares: " + exits + ".");
-    }
-
+            for (Square s2 : selectedBoard.getWormHoleEntranceSquares()) {
+                if (s2 == selectedBoard.getWormHoleEntranceSquares().get(arrayLength-1)) {
+                    entrances = entrances + s2.getSquarePosition() + ".";
+                } else {
+                    entrances = entrances + s2.getSquarePosition() + ",";
+                }
+            }
+                System.out.println("WormHole Entrances are on squares: " + entrances);
+                System.out.println("WormHole Exits are on squares: " + exits);
+            }
 
 }

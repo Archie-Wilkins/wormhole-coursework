@@ -91,14 +91,11 @@ public class Board {
     public void generateBoard() {
         //For loop here to set squares
         final int boardBuffer = 50;
-        //Tests showed mistake where I put getBoardLength() not size
+        //Test showed mistake where I put getBoardLength() not size
         for (int i = 1; i < this.getBoardSize() + boardBuffer; i++) {
-            //+12 to boardLength to create excess squares
-            // for player to move to if they go over 100
-            //add method taken from
-            // https://www.tutorialspoint.com/java/util/arraylist_add_index.htm
+            //+50 to boardLength to create excess squares
+            // for player to move to if they go over 100s
             boardSquares.add(new Square(i, SquareType.NORMAL));
-            // System.out.println(i); //For testing
         }
 
     }
@@ -111,8 +108,14 @@ public class Board {
      **/
     public int getSquarePosition(final int squarePosition) {
  // get method taken from
-// https://howtodoinjava.com/java/collections/arraylist/arraylist-get-method-example/
+ // Link to site split across two lines to conform to checkstyles rules
+//Gupta, L., n.d. ArrayList get() method - Getting Element at Index.
+// [online] HowToDoInJava. Available at:
+// <https://howtodoinjava.com/java/collections/arraylist
+// /arraylist-get-method-example/>
+// [Accessed 8 March 2021].
         return boardSquares.get(squarePosition - 1).getSquarePosition();
+        //End of reference
         //squarePostion -1 because arrays start at 0 but
         // it's more intuitive to call for the exact square you want.
     }
@@ -125,24 +128,35 @@ public class Board {
      **/
     public Enum<SquareType> getSquareType(final int squarePosition) {
         // get method taken from
-        // https://howtodoinjava.com/java/collections/arraylist/arraylist-get-method-example/
+        // Link to site split across two lines to conform to checkstyles rules
+    //Gupta, L., n.d. ArrayList get() method - Getting Element at Index.
+// [online] HowToDoInJava. Available at:
+// <https://howtodoinjava.com/java/collections/arraylist
+// /arraylist-get-method-example/>
+// [Accessed 8 March 2021].
         return boardSquares.get(squarePosition - 1).getSquareType();
+        //End of reference
         //squarePostion -1 because arrays start at 0
         //but it's more intuitive to call for the exact square you want.
     }
 
-    //Needs testing.
     /**
      * Creates array with squares to be turned into Entrances.
      **/
     public void selectWormHoleEntrances() {
-        //Reference .size() method
         while (wormHoleEntranceSquares.size() < this.getBoardLength()) {
            int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
            if ((1 < selectedSquare) && (selectedSquare < this.boardSize - 1)) {
                if(this.checkSquareInEntranceList(selectedSquare) == true) {
-                   //Reference .get() method
+                   // get method taken from
+                   // Link to site split across two lines to conform to checkstyles rules
+    //Gupta, L., n.d. ArrayList get() method - Getting Element at Index.
+    // [online] HowToDoInJava. Available at:
+    // <https://howtodoinjava.com/java/collections/arraylist
+    // /arraylist-get-method-example/>
+    // [Accessed 8 March 2021].
                    wormHoleEntranceSquares.add(boardSquares.get(selectedSquare));
+                   //End of reference
                }
            }
         }
@@ -156,10 +170,16 @@ public class Board {
       while (wormHoleExitSquares.size() < this.getBoardLength()) {
           int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
           if ((0 < selectedSquare) & (selectedSquare < this.boardSize -1)) {
-              //Reference Contains method ---- https://howtodoinjava.com/java/collections/arraylist/arraylist-contains/
-              //if ((checkSquareInEntranceList(selectedSquare) == true) && (nonStartingOrFinishingValueSelected(selectedSquare) == true)) {
               if ((this.checkSquareInEntranceList(selectedSquare) == true) && (this.checkSquareNotAlreadyInExitList(selectedSquare))) {
+              // get method taken from
+              // Link to site split across two lines to conform to checkstyles rules
+              //Gupta, L., n.d. ArrayList get() method - Getting Element at Index.
+              // [online] HowToDoInJava. Available at:
+              // <https://howtodoinjava.com/java/collections/arraylist
+              // /arraylist-get-method-example/>
+              // [Accessed 8 March 2021].
                   wormHoleExitSquares.add(boardSquares.get(selectedSquare));
+                  //End of Reference
               }
           }
       }
@@ -186,7 +206,15 @@ public class Board {
      */
   public boolean checkSquareInEntranceList(final int selectedSquare){
        for (Square entrance: this.getWormHoleEntranceSquares()){
+           // get method taken from
+           // Link to site split across two lines to conform to checkstyles rules
+           //Gupta, L., n.d. ArrayList get() method - Getting Element at Index.
+           // [online] HowToDoInJava. Available at:
+           // <https://howtodoinjava.com/java/collections/arraylist
+           // /arraylist-get-method-example/>
+           // [Accessed 8 March 2021].
             if(boardSquares.get(selectedSquare).equals(entrance)){
+                //End of reference
                 return false;
          }
        }
@@ -200,8 +228,16 @@ public class Board {
      */
   public boolean checkSquareNotAlreadyInExitList(final int selectedSquare){
       for (Square exit: this.getWormHoleExitSquares()){
+          // get method taken from
+          // Link to site split across two lines to conform to checkstyles rules
+          //Gupta, L., n.d. ArrayList get() method - Getting Element at Index.
+          // [online] HowToDoInJava. Available at:
+          // <https://howtodoinjava.com/java/collections/arraylist
+          // /arraylist-get-method-example/>
+          // [Accessed 8 March 2021].
           if(boardSquares.get(selectedSquare).equals(exit)){
-              return false; //faslse = failure.
+              //End of Reference
+              return false; //false = failure.
           }
       }
       return true;
@@ -213,7 +249,15 @@ public class Board {
      */
   public int getRandomWormholeExitPosition(){
       int randomNumber = (int)Math.ceil(Math.random() * this.getWormHoleExitSquares().size());
+      // get method taken from
+      // Link to site split across two lines to conform to checkstyles rules
+      //Gupta, L., n.d. ArrayList get() method - Getting Element at Index.
+      // [online] HowToDoInJava. Available at:
+      // <https://howtodoinjava.com/java/collections/arraylist
+      // /arraylist-get-method-example/>
+      // [Accessed 8 March 2021].
       Square randomSquare = this.getWormHoleExitSquares().get(randomNumber -1);
+      //End of reference
       return randomSquare.getSquarePosition();
   }
 
@@ -229,8 +273,6 @@ public class Board {
       this.selectWormHoleExits();
       this.convertSquareTypes();
   }
-
-
 
 }
 

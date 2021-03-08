@@ -25,9 +25,16 @@ public class UserInputValidator {
      */
     public boolean checkInputIsInteger(final String givenInput){
         try{
-            //REFERENCE INTEGER.PARSEINT USE HERE
+            //Reference For INTEGER.PARSEINT
+            //Amos, R., 2017.
+            // How can I check if a value is of type Integer?.[online]
+            // Stack Overflow.
+            // Available at:
+            // <https://stackoverflow.com/questions/12558206/
+            // how-can-i-check-if-a-value-is-of-type-integer>
+            // [Accessed 8 March 2021].
             Integer.parseInt(givenInput);
-//https://stackoverflow.com/questions/12558206/how-can-i-check-if-a-value-is-of-type-integer
+            //End of Reference
             return true;
         }catch(Exception e){
             return false;
@@ -44,9 +51,17 @@ public class UserInputValidator {
         for(int i = 0; i < givenInput.length(); i++){
             //Reference Chart At to get characters in string.
             char letter = givenInput.charAt(i);
-            //REFERENCE THIS FOR LETTER VALIDATION BELOW
-            //https://www.programiz.com/java-programming/examples/alphabet
+            //Code used for letter validation.
+            //Link to site split over two lines to conform
+            //to checkstyles rules
+            //Amos, R., 2017. How can I check if a value is of type Integer?.
+            // [online] Stack Overflow.
+            // Available at:
+            // <https://stackoverflow.com/questions/12558206
+            // /how-can-i-check-if-a-value-is-of-type-integer>
+            // [Accessed 8 March 2021].
             if((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z')){
+                //End of reference
                 continue;
             } else {
                 return false;
