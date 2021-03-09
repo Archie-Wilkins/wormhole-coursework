@@ -30,7 +30,6 @@ public class UserInputValidatorChecks {
     public void checkInputIsIntegerTest() throws Exception{
         UserInputValidator testValidator = new UserInputValidator();
 
-        //Testing lower edge failure case
         assertEquals(testValidator.checkInputIsInteger("4"), true);
 
         assertEquals(testValidator.checkInputIsInteger("erthesrth"), false);

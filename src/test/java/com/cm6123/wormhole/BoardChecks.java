@@ -4,49 +4,34 @@ import com.cm6123.wormhole.GameLogic.Board;
 import com.cm6123.wormhole.GameLogic.Square;
 import com.cm6123.wormhole.GameLogic.SquareType;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BoardChecks {
 
-    @Test
-    //
-    public void BoardGeneratesSquaresWithCorrectPositions() throws Exception {
+    @ParameterizedTest
+    @CsvSource({"1,0", "64,63", "99,98" ,"100,99" ,"113,112"})
+    public void BoardGeneratesSquaresWithCorrectPositions(int input, int expected) throws Exception {
         Board TestBoard = new Board(10);
         TestBoard.generateBoard();
 
         //Square position is -1 from intutive answer due to
         //accomdating for lists starting from 0.
-        int SquarePosition1 = TestBoard.getSquarePosition(1);
-        assertEquals(SquarePosition1, 0);
+        int SquarePosition1 = TestBoard.getSquarePosition(input);
+        assertEquals(SquarePosition1, expected);
 
-        int SquarePosition64 = TestBoard.getSquarePosition(64);
-        assertEquals(SquarePosition64, 63);
-
-        int SquarePosition99 = TestBoard.getSquarePosition(99);
-        assertEquals(SquarePosition99, 98);
-
-        int SquarePosition100 = TestBoard.getSquarePosition(100);
-        assertEquals(SquarePosition100, 99);
-
-        int SquarePosition112 = TestBoard.getSquarePosition(113);
-        assertEquals(SquarePosition112, 112);
     }
 
-    @Test
-    public void BoardGeneratesSquaresWithEnumOfNormal() throws Exception {
+    @ParameterizedTest
+    @ValueSource(ints = {1,64,99,100,112})
+    public void BoardGeneratesSquaresWithEnumOfNormal(int input) throws Exception {
         Board TestBoard = new Board(10);
         TestBoard.generateBoard();
 
-        assertEquals(TestBoard.getSquareType(1), SquareType.NORMAL);
-
-        assertEquals(TestBoard.getSquareType(64), SquareType.NORMAL);
-
-        assertEquals(TestBoard.getSquareType(99), SquareType.NORMAL);
-
-        assertEquals(TestBoard.getSquareType(100), SquareType.NORMAL);
-
-        assertEquals(TestBoard.getSquareType(112), SquareType.NORMAL);
+        assertEquals(TestBoard.getSquareType(input), SquareType.NORMAL);
     }
 
     @Test
@@ -162,8 +147,9 @@ public class BoardChecks {
 
     }
 
-    @Test
-    public void CheckSquares1And100OnwardsAreSetToNormal() throws Exception {
+    @ParameterizedTest
+    @ValueSource(ints ={1,100,105,108,112,130})
+    public void CheckSquares1And100OnwardsAreSetToNormal(int input) throws Exception {
 
         int testRepeats = 100;
 
@@ -174,24 +160,11 @@ public class BoardChecks {
             TestBoard.selectWormHoleEntrances();
             TestBoard.convertSquareTypes();
 
-            Enum<SquareType> Position1 = TestBoard.getSquareType(1);
-            assertEquals(Position1, SquareType.NORMAL);
+            Enum<SquareType> SquarePosition = TestBoard.getSquareType(input);
+            assertEquals(SquarePosition, SquareType.NORMAL);
 
-
-            Enum<SquareType> Position100 = TestBoard.getSquareType(100);
-            assertEquals(Position100, SquareType.NORMAL);
-
-
-            Enum<SquareType> Position105 = TestBoard.getSquareType(105);
-            assertEquals(Position105, SquareType.NORMAL);
-
-            Enum<SquareType> Position108 = TestBoard.getSquareType(108);
-            assertEquals(Position108, SquareType.NORMAL);
-
-            Enum<SquareType> Position112 = TestBoard.getSquareType(112);
-            assertEquals(Position112, SquareType.NORMAL);
-            System.out.println(TestBoard.getBoardSize());
-            System.out.println(count);
+          // System.out.println(TestBoard.getBoardSize());//Used for testing bug
+         // System.out.println(count);
         }
     }
 

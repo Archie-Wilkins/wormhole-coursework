@@ -74,20 +74,6 @@ public class DiceChecks {
 
 
   }
-  ///THIS ALL NEEDS TO BE CHANGED
-  //INCOMPLETE public userInputtedRoleNeverExceedsFaces
-  //@ParameterizedTest
-  //@ValueSource(ints = {4, 6, 7, 8, 10, 12, 15})
-  //public void UserInputtedDiceValueNeverExceedsNumberOfFacesOrGoesBelowOne(Integer faces) throws Exception {
-
-  //  Dice aDice = new Dice(faces);
-
-
-
-  //}
-
-
-  //public userInputtedRoleHandlesNonIntegerInput
 
   // Test 4
   @ParameterizedTest
