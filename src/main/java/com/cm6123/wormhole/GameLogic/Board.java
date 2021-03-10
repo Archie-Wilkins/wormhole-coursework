@@ -206,15 +206,7 @@ public class Board {
      */
   public boolean checkSquareInEntranceList(final int selectedSquare){
        for (Square entrance: this.getWormHoleEntranceSquares()){
-           // get method taken from
-           // Link to site split across two lines to conform to checkstyles rules
-           //Gupta, L., n.d. ArrayList get() method - Getting Element at Index.
-           // [online] HowToDoInJava. Available at:
-           // <https://howtodoinjava.com/java/collections/arraylist
-           // /arraylist-get-method-example/>
-           // [Accessed 8 March 2021].
             if(boardSquares.get(selectedSquare).equals(entrance)){
-                //End of reference
                 return false;
          }
        }
