@@ -26,6 +26,7 @@ public class UserInputValidator {
     public boolean checkInputIsInteger(final String givenInput){
         try{
             //Reference For INTEGER.PARSEINT
+            //Integer.parseInt function found on Oracle documentation.
             //Docs.oracle.com. 2020. Integer (Java Platform SE 7 ). [online]
             // Available at:
            //<https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html>
