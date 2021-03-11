@@ -26,13 +26,10 @@ public class UserInputValidator {
     public boolean checkInputIsInteger(final String givenInput){
         try{
             //Reference For INTEGER.PARSEINT
-            //Amos, R., 2017.
-            // How can I check if a value is of type Integer?.[online]
-            // Stack Overflow.
+            //Docs.oracle.com. 2020. Integer (Java Platform SE 7 ). [online]
             // Available at:
-            // <https://stackoverflow.com/questions/12558206/
-            // how-can-i-check-if-a-value-is-of-type-integer>
-            // [Accessed 8 March 2021].
+           //<https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html>
+            // [Accessed 11 March 2021].
             Integer.parseInt(givenInput);
             //End of Reference
             return true;
