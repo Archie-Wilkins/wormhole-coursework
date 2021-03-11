@@ -101,12 +101,12 @@ public class UserInterface {
                         //Clear Array method found here
                         //Link to site split across two lines to conform
                         //to checkstyles rules
-                        //Singh, C., n.d. How to empty an ArrayList in Java.
-                        // [online] beginnersbook.com.
+                        //Docs.oracle.com. 2020.
+                        // ArrayList (Java Platform SE 7 ). [online]
                         // Available at:
-                        // <https://beginnersbook.com/2013/12/how-to-empty-an-
-                        // arraylist-in-java/>
-                        // [Accessed 8 March 2021].
+                        // <https://docs.oracle.com/javase/7/
+                        // docs/api/java/util/ArrayList.html>
+                        // [Accessed 10 March 2021].
                         players.clear();
                         //End of reference
                         this.playAgain();
@@ -130,11 +130,11 @@ public class UserInterface {
                 //System.exit Reference
                 //Link is split across three lines to conform to
                 //Checkstyle rules
-                //Delft Stack. 2020. End a Java Program.[online]
-                // Available at: <https://www.delftstack.com/howto/java
-                // /java-end-program/#:~:text=To%20end%20a%20Java%20program,
-                // program%20that%20we%20are%20running>
-                // [Accessed 8 March 2021].
+                //Docs.oracle.com. 2020. System (Java Platform SE 7 ).[online]
+                // Available at:
+                // <https://docs.oracle.com/javase/7/docs/
+                //   api/java/lang/System.html>
+                // [Accessed 10 March 2021].
                 System.exit(0);
                 //End of reference
                 break;

@@ -78,8 +78,7 @@ public class BoardChecks {
         TestBoard.selectWormHoleExits();
         assertEquals(TestBoard.getWormHoleExitSquares().get(3).getSquareType(), SquareType.NORMAL);
     }
-    //Need to create test to make sure there is no overlap between
-    //Entrances and Exits
+
     @Test
     public void WormHoleEntranceSquaresAndExitSquaresHaveUniqueValues() throws Exception {
         Board TestBoard = new Board(10);
@@ -117,8 +116,6 @@ public class BoardChecks {
         assertEquals(allValuesUnique, false);
     }
 
-    //Need to make tests to check first and ending squares arent coverted
-    //Need to make method to convert items into array to relevant SquareType.
     @Test
     public void CheckWormHoleEntrancesConvertedToTypeEntrance() throws Exception {
         Board TestBoard = new Board(10);
@@ -163,8 +160,6 @@ public class BoardChecks {
             Enum<SquareType> SquarePosition = TestBoard.getSquareType(input);
             assertEquals(SquarePosition, SquareType.NORMAL);
 
-          // System.out.println(TestBoard.getBoardSize());//Used for testing bug
-         // System.out.println(count);
         }
     }
 

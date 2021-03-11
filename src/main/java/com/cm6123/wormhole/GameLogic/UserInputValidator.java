@@ -11,7 +11,7 @@ public class UserInputValidator {
      */
     public boolean checkInputWithRange(final int lowerBound,final int upperBound,final int givenValue){
 
-          if ((lowerBound <= givenValue) && (givenValue <= upperBound)) {
+          if((lowerBound <= givenValue) && (givenValue <= upperBound)) {
               return true;
           } else {
               return false;
@@ -49,8 +49,6 @@ public class UserInputValidator {
     public boolean checkInputOnlyContainsLetters(final String givenInput){
 
         for(int i = 0; i < givenInput.length(); i++){
-            //Reference Chart At to get characters in string.
-            char letter = givenInput.charAt(i);
             //Code used for letter validation.
             //Link to site split over two lines to conform
             //to checkstyles rules
@@ -60,8 +58,9 @@ public class UserInputValidator {
             // <https://stackoverflow.com/questions/12558206
             // /how-can-i-check-if-a-value-is-of-type-integer>
             // [Accessed 8 March 2021].
+            char letter = givenInput.charAt(i);
             if((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z')){
-                //End of reference
+            //End of reference
                 continue;
             } else {
                 return false;

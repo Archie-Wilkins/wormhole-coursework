@@ -1,5 +1,6 @@
 Wormhole Game 
 
+
 --How to run game---
 
 1)Clone the project or just 
@@ -8,9 +9,7 @@ download "assessment-1-2021-starter-1.0-SNAPSHOT.jar" (Found under libs within t
 2)Within the libs folder execute the following command within the command terminal 
 " java -jar assessment-1-2021-starter-1.0-SNAPSHOT.jar ". 
 
-3)The game will begin :)
-
---Rules-- 
+--Rules of the game-- 
 1) The game is played with 2-6 players. 
 2) Players can only have alphabetic names, with no spaces. 
 2) The game can be played with 5x5 board - 10x10 board.
