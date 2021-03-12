@@ -46,9 +46,11 @@ pages:
 
   script:
     - pwd
+    - mkdir public/jars
     - mv ./build/reports/tests/ public
     - mv ./build/reports/checkstyle/ public
     - mv ./build/jacocoHtml/ public
+    - mv ./build/libs/*.jar public/jars
     - pwd
     - ls -lR public
 
