@@ -88,7 +88,7 @@ public class Board {
      * Populates arrayList boardSquares with squares.
      * Number of squares is boardLength x boardLength
      **/
-    private void generateBoard() {
+    protected void generateBoard() {
         //For loop here to set squares
         final int boardBuffer = 50;
         //Automated test highlighted mistake
@@ -107,7 +107,7 @@ public class Board {
      * @param squarePosition of the square within the board.
      * @return The board position of a square.
      **/
-    public int getSquarePosition(final int squarePosition) {
+    protected  int getSquarePosition(final int squarePosition) {
         return boardSquares.get(squarePosition - 1).getSquarePosition();
         //squarePostion -1 because arrays start at 0 but
         // it's more intuitive to call for the exact square you want.
@@ -128,7 +128,7 @@ public class Board {
     /**
      * Creates array with squares to be turned into Entrances.
      **/
-    private void selectWormHoleEntrances() {
+    protected  void selectWormHoleEntrances() {
         while (wormHoleEntranceSquares.size() < this.getBoardLength()) {
            int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
            if ((1 < selectedSquare) && (selectedSquare < this.boardSize - 1)) {
@@ -143,7 +143,7 @@ public class Board {
     /**
      * Creates array with squares to be turned into Exits.
      **/
-    private void selectWormHoleExits() {
+    protected  void selectWormHoleExits() {
       while (wormHoleExitSquares.size() < this.getBoardLength()) {
           int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
           if ((0 < selectedSquare) & (selectedSquare < this.boardSize -1)) {
@@ -158,7 +158,7 @@ public class Board {
      * Converts all squares in Entrance and Exits arrays.
      * To appropriate Square types.
      */
-    private void convertSquareTypes(){
+    protected  void convertSquareTypes(){
       for (Square s: this.getWormHoleEntranceSquares()){
           s.setSquareType(SquareType.WORMHOLEENTRANCE);
       }
@@ -187,7 +187,7 @@ public class Board {
      * @param selectedSquare selected by SelectExitSquares Function.
      * @return true or false.
      */
-    private boolean checkSquareNotAlreadyInExitList(final int selectedSquare){
+    protected  boolean checkSquareNotAlreadyInExitList(final int selectedSquare){
       for (Square exit: this.getWormHoleExitSquares()){
           if(boardSquares.get(selectedSquare).equals(exit)){
               return false; //false = failure.
