@@ -5,7 +5,7 @@ class UserInputValidator {
 //to get accurate jacoco coverage reports and passed.
 //They were moved to the application package
 //to achieve the desired level of encapsulation
-//for Helene's part of the assessment.
+//for the fundamentals of Java part of the assessment.
 
     /**
      * Checks given value is between two numbers.
