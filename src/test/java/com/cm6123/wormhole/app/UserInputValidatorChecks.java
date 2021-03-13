@@ -1,6 +1,6 @@
-package com.cm6123.wormhole;
+package com.cm6123.wormhole.app;
 
-import com.cm6123.wormhole.GameLogic.UserInputValidator;
+import com.cm6123.wormhole.app.UserInputValidator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

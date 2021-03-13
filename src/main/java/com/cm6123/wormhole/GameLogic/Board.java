@@ -88,7 +88,7 @@ public class Board {
      * Populates arrayList boardSquares with squares.
      * Number of squares is boardLength x boardLength
      **/
-    public void generateBoard() {
+    private void generateBoard() {
         //For loop here to set squares
         final int boardBuffer = 50;
         //Automated test highlighted mistake
@@ -128,7 +128,7 @@ public class Board {
     /**
      * Creates array with squares to be turned into Entrances.
      **/
-    public void selectWormHoleEntrances() {
+    private void selectWormHoleEntrances() {
         while (wormHoleEntranceSquares.size() < this.getBoardLength()) {
            int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
            if ((1 < selectedSquare) && (selectedSquare < this.boardSize - 1)) {
@@ -143,7 +143,7 @@ public class Board {
     /**
      * Creates array with squares to be turned into Exits.
      **/
-  public void selectWormHoleExits() {
+    private void selectWormHoleExits() {
       while (wormHoleExitSquares.size() < this.getBoardLength()) {
           int selectedSquare = (int) Math.ceil(Math.random() * this.boardSize);
           if ((0 < selectedSquare) & (selectedSquare < this.boardSize -1)) {
@@ -158,7 +158,7 @@ public class Board {
      * Converts all squares in Entrance and Exits arrays.
      * To appropriate Square types.
      */
-  public void convertSquareTypes(){
+    private void convertSquareTypes(){
       for (Square s: this.getWormHoleEntranceSquares()){
           s.setSquareType(SquareType.WORMHOLEENTRANCE);
       }
@@ -187,7 +187,7 @@ public class Board {
      * @param selectedSquare selected by SelectExitSquares Function.
      * @return true or false.
      */
-  public boolean checkSquareNotAlreadyInExitList(final int selectedSquare){
+    private boolean checkSquareNotAlreadyInExitList(final int selectedSquare){
       for (Square exit: this.getWormHoleExitSquares()){
           if(boardSquares.get(selectedSquare).equals(exit)){
               return false; //false = failure.
@@ -200,7 +200,7 @@ public class Board {
      * Retrieves a randomly selected wormhole exits position.
      * @return randomSquarePosition (int)
      */
-  public int getRandomWormholeExitPosition(){
+    public int getRandomWormholeExitPosition(){
       int randomNumber = (int)Math.ceil(Math.random() * this.getWormHoleExitSquares().size());
       Square randomSquare = this.getWormHoleExitSquares().get(randomNumber -1);
       return randomSquare.getSquarePosition();

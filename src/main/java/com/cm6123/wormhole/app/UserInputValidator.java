@@ -1,6 +1,6 @@
-package com.cm6123.wormhole.GameLogic;
+package com.cm6123.wormhole.app;
 
-public class UserInputValidator {
+class UserInputValidator {
 
     /**
      * Checks given value is between two numbers.
@@ -9,7 +9,7 @@ public class UserInputValidator {
      * @param givenValue - value provided by the user.
      * @return true/false.
      */
-    public boolean checkInputWithRange(final int lowerBound,final int upperBound,final int givenValue){
+    protected boolean checkInputWithRange(final int lowerBound,final int upperBound,final int givenValue){
 
           if((lowerBound <= givenValue) && (givenValue <= upperBound)) {
               return true;
@@ -23,7 +23,7 @@ public class UserInputValidator {
      * @param givenInput - value provided by user
      * @return true/false
      */
-    public boolean checkInputIsInteger(final String givenInput){
+    protected  boolean checkInputIsInteger(final String givenInput){
         try{
             //Reference For INTEGER.PARSEINT
             //Integer.parseInt function found on Oracle documentation.
@@ -44,9 +44,9 @@ public class UserInputValidator {
      * @param givenInput - value provided by user
      * @return true/false
      */
-    public boolean checkInputOnlyContainsLetters(final String givenInput){
+    protected  boolean checkInputOnlyContainsLetters(final String givenInput) {
 
-        for(int i = 0; i < givenInput.length(); i++){
+        for (int i = 0; i < givenInput.length(); i++) {
             //Code used for letter validation.
             //Link to site split over two lines to conform
             //to checkstyles rules
@@ -57,8 +57,8 @@ public class UserInputValidator {
             // /how-can-i-check-if-a-value-is-of-type-integer>
             // [Accessed 8 March 2021].
             char letter = givenInput.charAt(i);
-            if((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z')){
-            //End of reference
+            if ((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z')) {
+                //End of reference
                 continue;
             } else {
                 return false;
@@ -66,12 +66,4 @@ public class UserInputValidator {
         }
         return true;
     }
-
 }
-
-
-
-
-
-
-

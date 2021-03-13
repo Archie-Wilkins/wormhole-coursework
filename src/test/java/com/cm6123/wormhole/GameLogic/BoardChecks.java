@@ -1,4 +1,4 @@
-package com.cm6123.wormhole;
+package com.cm6123.wormhole.GameLogic;
 
 import com.cm6123.wormhole.GameLogic.Board;
 import com.cm6123.wormhole.GameLogic.Square;

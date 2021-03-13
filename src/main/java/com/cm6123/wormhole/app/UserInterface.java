@@ -4,7 +4,6 @@ import com.cm6123.wormhole.GameLogic.Board;
 import com.cm6123.wormhole.GameLogic.Player;
 import com.cm6123.wormhole.GameLogic.Square;
 import com.cm6123.wormhole.GameLogic.SquareType;
-import com.cm6123.wormhole.GameLogic.UserInputValidator;
 import com.cm6123.wormhole.dice.Dice;
 
 import java.util.ArrayList;

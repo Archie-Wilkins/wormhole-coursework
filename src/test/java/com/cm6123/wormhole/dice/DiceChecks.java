@@ -1,4 +1,4 @@
-package com.cm6123.wormhole;
+package com.cm6123.wormhole.dice;
 
 
 import com.cm6123.wormhole.dice.Dice;
