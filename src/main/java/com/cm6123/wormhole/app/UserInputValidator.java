@@ -6,10 +6,12 @@ class UserInputValidator {
 //They were moved to the application package
 //to achieve the desired level of encapsulation
 //for the fundamentals of Java part of the assessment
-//if this is a problem please see the last successful
+//if this is a problem due to this app package not being
+// tested, please see the last successful
 //build before this change was implemented as evidence
 //of sufficient code coverage.
 //https://git.cardiff.ac.uk/c2043958/Wormhole_2043958_2021/-/commit/ef0a4d8b991b0b5dec771118fe8b7c0993f11d06
+
 
     /**
      * Checks given value is between two numbers.

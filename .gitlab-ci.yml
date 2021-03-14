@@ -19,11 +19,11 @@ cache:
 
 build:gradle:
   stage: build
+  only:
+    - tags
   tags:
     - comsc-ci
 
-  only:
-    - tags
   script:
     - ./gradlew buildAndReport
   artifacts:
