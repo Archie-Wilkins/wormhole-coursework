@@ -2,12 +2,12 @@ Wormhole Game
 
 
 --How to run game---
+METHOD 1 
+Clone the project and execute the "gradlew run" command from the root. 
 
-1)Clone the project or just 
-download "assessment-1-2021-starter-1.0-SNAPSHOT.jar" (Found under libs within the build folder).
-
-2)Within the libs folder execute the following command within the command terminal 
-" java -jar assessment-1-2021-starter-1.0-SNAPSHOT.jar ". 
+METHOD 2 
+Go to the pieplines section of gitlab, navigate to "submission-3", on the right, download artifacts. 
+Within the downloaded file, run the jar file found under build/libs 
 
 --Rules of the game-- 
 1) The game is played with 2-6 players. 
